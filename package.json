@@ -1,0 +1,17 @@
+{
+  "name": "nlams-root",
+  "version": "1.0.0",
+  "description": "National Land Acquisition & Management System - SIH 2026 Full-Stack MVP",
+  "private": true,
+  "scripts": {
+    "migrate": "node server/db/migrations.js",
+    "seed": "node server/db/seed.js",
+    "db:setup": "node server/db/migrations.js && node server/db/seed.js",
+    "server": "node server/index.js",
+    "client": "npm --prefix client run dev",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"node server/index.js\" \"npm --prefix client run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  }
+}

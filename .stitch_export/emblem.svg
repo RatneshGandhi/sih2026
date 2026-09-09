@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" fill="none">
+  <!-- Emblem Badge -->
+  <rect x="2" y="4" width="48" height="48" rx="12" fill="#132A4C"/>
+  <rect x="2" y="4" width="48" height="48" rx="12" stroke="#0E9F6E" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Geometric Land & Chakra Symbol -->
+  <path d="M14 36L26 16L38 36H14Z" stroke="#0E9F6E" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="26" cy="28" r="5" fill="#F2A93B"/>
+  <circle cx="26" cy="28" r="8" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <path d="M20 40H32" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <!-- Typography -->
+  <text x="62" y="27" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" fill="#132A4C" letter-spacing="0.5">NLAMS</text>
+  <text x="62" y="42" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="600" font-size="9" fill="#0E9F6E" letter-spacing="1.2">GOVT. OF INDIA PORTAL</text>
+</svg>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#7ef6be",
+          "on-surface-variant": "#44474e",
+          "on-secondary-container": "#00714c",
+          "outline": "#74777f",
+          "surface": "#f8f9ff",
+          "surface-container-low": "#eff4ff",
+          "tertiary-fixed": "#ffddb5",
+          "on-secondary-fixed-variant": "#005236",
+          "on-tertiary-fixed": "#2a1800",
+          "secondary": "#006c49",
+          "on-primary": "#ffffff",
+          "secondary-fixed": "#81f9c1",
+          "on-surface": "#0d1c2e",
+          "primary-fixed": "#d6e3ff",
+          "surface-dim": "#ccdbf3",
+          "tertiary-fixed-dim": "#ffb956",
+          "on-background": "#0d1c2e",
+          "surface-container-highest": "#d5e3fc",
+          "primary": "#001533",
+          "surface-tint": "#4a5f84",
+          "on-error": "#ffffff",
+          "on-tertiary-container": "#c68312",
+          "tertiary-container": "#3d2500",
+          "surface-container": "#e6eeff",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-fixed": "#011b3d",
+          "error-container": "#ffdad6",
+          "primary-container": "#132a4c",
+          "outline-variant": "#c4c6cf",
+          "background": "#f8f9ff",
+          "tertiary": "#221200",
+          "on-error-container": "#93000a",
+          "surface-variant": "#d5e3fc",
+          "on-primary-fixed-variant": "#32476b",
+          "inverse-on-surface": "#eaf1ff",
+          "on-secondary": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "inverse-surface": "#233144",
+          "on-primary-container": "#7d92ba",
+          "on-tertiary-fixed-variant": "#633f00",
+          "surface-bright": "#f8f9ff",
+          "primary-fixed-dim": "#b2c7f1",
+          "error": "#ba1a1a",
+          "on-secondary-fixed": "#002113",
+          "inverse-primary": "#b2c7f1",
+          "secondary-fixed-dim": "#63dca6",
+          "surface-container-high": "#dce9ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xs": "0.5rem",
+          "space-2xs": "0.25rem",
+          "space-sm": "0.75rem",
+          "margin-desktop": "2rem",
+          "space-md": "1rem",
+          "space-2xl": "3rem",
+          "margin-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2rem",
+          "gutter": "1.5rem"
+        },
+        "fontFamily": {
+          "headline-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "display-hero": ["Inter"],
+          "data-mono": ["Inter"],
+          "display-hero-mobile": ["Inter"],
+          "label-md": ["Inter"]
+        },
+        "fontSize": {
+          "headline-lg": ["1.75rem", {"lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-sm": ["0.75rem", {"lineHeight": "1.125rem", "letterSpacing": "0", "fontWeight": "400"}],
+          "body-lg": ["1rem", {"lineHeight": "1.625rem", "letterSpacing": "0", "fontWeight": "400"}],
+          "headline-sm": ["1.125rem", {"lineHeight": "1.625rem", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-md": ["0.875rem", {"lineHeight": "1.375rem", "letterSpacing": "0", "fontWeight": "400"}],
+          "label-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-md": ["1.375rem", {"lineHeight": "1.875rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "display-hero": ["2.5rem", {"lineHeight": "3rem", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+          "data-mono": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "0.04em", "fontWeight": "500"}],
+          "display-hero-mobile": ["2rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-md": ["0.875rem", {"lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><div class="fixed top-0 left-0 w-full z-50 flex flex-col"><div class="w-full flex h-[3px]"><div class="flex-1 bg-[#FF9933]"></div><div class="flex-1 bg-[#FFFFFF]"></div><div class="flex-1 bg-[#138808]"></div></div><header class="w-full h-16 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #132a4c
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VyDPtyVwjCXwSzoSqY5rzaGpAbgKa_zMGX-A6KcOYysCkWx7zyrbm8llOUYU-DjDL3fAGCA2kCICtQD0WIzJ7w9suTrx7ZIQFnmh0VSxWFyeHFPq-1BZAkTO_oirHRuNBfutVS0gpJqDaIcqZikjGMmGTvT4xg8lD58hgcox-uKBloi3BGE_gRZAXLx7oUEk_b5Ine-XMNvA1RTGeDCQwEbnR96brtDdNGTnUE4PpDDtTURG1YY1zjUq00"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">NLAMS</span><span class="px-space-xs py-[2px] rounded bg-primary-container text-on-primary font-data-mono text-data-mono">GOV.IN</span></div><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">National Land Acquisition &amp; Management System</span></div></div><div class="flex-1 max-w-xl mx-space-xl"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-10 pr-space-md bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:bg-surface-container-lowest focus:outline-none shadow-sm transition-all" placeholder="Search by Proposal ID, Gazette No, Khasra/Survey No, or Land Owner..." type="search"/></div></div><div class="flex items-center gap-space-lg"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold tracking-wide uppercase">NIC Cadastre Live</span><span class="text-on-secondary-container opacity-40">|</span><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-sm text-label-sm">Vault Secure</span></div><div class="relative cursor-pointer"><div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">notifications</span></div><span class="absolute -top-1 -right-1 h-4 min-w-[1rem] px-1 bg-error text-on-error rounded-full font-data-mono text-[10px] flex items-center justify-center font-bold">5</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden md:block"><div class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Shri R. K. Verma, IAS</div><div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Divisional Commissioner / CA</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header></div><aside class="fixed left-0 top-[67px] bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between shadow-[1px_0_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col flex-1 overflow-y-auto pt-space-md px-space-sm"><div class="px-space-sm mb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Central Cadastre</div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="proposals" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-label-md text-label-md">Proposals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="land-records" href="#"><span class="material-symbols-outlined text-[20px]">landscape</span><span class="font-label-md text-label-md">Land Records</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="compensation-and-r-and-r" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-md text-label-md">Compensation &amp; R&amp;R</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="gis-map" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-md text-label-md">GIS Map</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-label-md text-label-md">Reports</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold shadow-sm" data-path="documents" href="#"><span class="material-symbols-outlined text-[20px]">folder</span><span class="font-label-md text-label-md">Documents</span></a></nav><div class="mt-space-md pt-space-xs px-space-sm mb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Governance &amp; Feeds</div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center justify-between px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="notifications" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-label-md text-label-md">Notifications</span></div><span class="px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-data-mono text-[10px] font-bold">12</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Settings</span></a></nav></div><div class="p-space-sm m-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-xs mb-1"><span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">DSC Module Active</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Token ID: e-Mudhra #98214</p></div></aside><div class="pl-64"><main class="w-full pt-[67px] bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive State Holder -->
+<input checked="" class="peer sr-only" id="nlams-drawer-toggle" type="checkbox"/>
+<!-- Underlying Executive Dashboard (Visible Under Scrim) -->
+<div class="w-full px-space-xl py-space-lg flex flex-col gap-space-xl transition-all duration-300">
+<!-- Top Statutory Summary Bar -->
+<div class="w-full flex flex-wrap items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-primary font-semibold">Corridor Focus:</span>
+<span class="font-body-md text-body-md text-on-surface-variant">NH-48 Western Freight Spur &amp; DFC Pkg 4B</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-space-xs font-data-mono text-data-mono text-on-surface-variant">
+<span>GAZETTE NOTIFICATION:</span>
+<span class="text-primary font-bold">SO 1928(E)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<label class="cursor-pointer flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" for="nlams-drawer-toggle">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+<span>View Alerts (5 New)</span>
+</label>
+</div>
+</div>
+<!-- Executive Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Total Acquired Ha</span>
+<span class="material-symbols-outlined text-[20px] text-primary">landscape</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,482.40</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Ha</span>
+</div>
+<div class="mt-space-xs text-body-sm font-body-sm text-on-surface-variant">78.4% of total notification limit</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">PFMS DBT Disbursal</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">payments</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface">₹ 4,890.12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Cr</span>
+</div>
+<div class="mt-space-xs text-body-sm font-body-sm text-secondary font-semibold">94.2% statutory target met</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Active Injunctions</span>
+<span class="material-symbols-outlined text-[20px] text-error">gavel</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-error">14</span>
+<span class="font-label-sm text-label-sm text-error font-semibold">Plots Frozen</span>
+</div>
+<div class="mt-space-xs text-body-sm font-body-sm text-on-surface-variant">High Court Bench Bombay &amp; NGT</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Drone RTK Pegged</span>
+<span class="material-symbols-outlined text-[20px] text-primary">satellite_alt</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface">4,912</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">/ 5,100</span>
+</div>
+<div class="mt-space-xs text-body-sm font-body-sm text-on-surface-variant">96.3% orthomosaic coverage</div>
+</div>
+</div>
+<!-- Drone Aerial Plot Cadastral Backdrop Preview -->
+<div class="w-full rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-md flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary">layers</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">High-Precision Orthomosaic Boundary Cadastre — Gat No. 415/416</span>
+</div>
+<span class="px-space-xs py-1 rounded bg-secondary-container text-on-secondary-container font-data-mono text-data-mono font-semibold uppercase">RTK Calibrated ±1.8cm</span>
+</div>
+<div class="relative w-full h-[460px] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Ultra-high-definition aerial orthomosaic drone view of lush green agricultural land in rural Maharashtra, India. Prominent white boundary vector lines mark Survey Plot S-46, complete with survey pegs P1 to P5, deep green sugarcane fields, dirt farm road, and modest village houses under bright daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl69SBxFZ_zdCbkbjyKhv3-T-ArWnWbjbqXw4DgTe1S-PjF4pfgmH3c4CT9JAZXw6_ArGfFSiVSaaDORXUON53ghUJ89Muxfy-2a1M5krppTh9YIeZMvx5tbalsbObb1QOKSVKIyeS7kI0rbQXWXWiq7cbXrTjPtw7biwDvz4GBCkbPamtiZqAMoLao963-H9lYz88ohch13z9dZaPgK4XDtWIw-CVs7-gM6kCAMSi9yFVY8ad3hDApQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 p-space-md rounded-lg bg-surface-container-lowest/95 backdrop-blur-md shadow-md flex items-center gap-space-md max-w-md">
+<span class="material-symbols-outlined text-[28px] text-primary">pin_drop</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Survey Point P1-P5 (Mauza Vangaon)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validated by Survey of India CORS Network • Station Dahanu-04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Semi-translucent Scrim Overlay (Peer Controlled) -->
+<label aria-label="Dismiss drawer" class="fixed inset-0 top-[67px] bg-primary/40 backdrop-blur-[2px] z-40 transition-opacity duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto opacity-0 pointer-events-none" for="nlams-drawer-toggle"></label>
+<!-- High-Fidelity Slide-in Drawer Container -->
+<aside class="fixed top-[67px] right-0 bottom-0 w-full sm:w-[500px] lg:w-[540px] bg-surface-container-lowest z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-out transform translate-x-full peer-checked:translate-x-0" id="nlams-notification-drawer">
+<!-- Drawer Header -->
+<div class="flex flex-col bg-surface-container-low shadow-sm z-10">
+<div class="p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Notifications &amp; Alerts</h2>
+<span class="px-2 py-0.5 rounded-full bg-error text-on-error font-data-mono text-[11px] font-bold" id="unread-counter-badge">5 New</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-primary hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold" onclick="markAllAsRead()" title="Mark all notifications as read" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">done_all</span>
+<span>Mark all read</span>
+</button>
+<label class="cursor-pointer w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" for="nlams-drawer-toggle" title="Close alerts drawer">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</label>
+</div>
+</div>
+<!-- Quick Filter Pills -->
+<div class="px-space-md pb-space-xs flex items-center gap-space-xs overflow-x-auto">
+<button class="filter-tab px-3 py-1.5 rounded-full font-label-sm text-label-sm font-medium transition-all bg-surface-container-high text-on-surface" onclick="filterCategory('all', this)" type="button">
+          All (16)
+        </button>
+<button class="filter-tab px-3 py-1.5 rounded-full font-label-sm text-label-sm font-semibold transition-all bg-primary-container text-on-primary shadow-sm flex items-center gap-1" onclick="filterCategory('unread', this)" type="button">
+<span>Unread</span>
+<span class="px-1.5 py-0.2 rounded-full bg-error text-on-error text-[10px] font-data-mono">5</span>
+</button>
+<button class="filter-tab px-3 py-1.5 rounded-full font-label-sm text-label-sm font-medium transition-all bg-surface-container-high text-on-surface-variant hover:text-on-surface" onclick="filterCategory('actions', this)" type="button">
+          Action / Mentions (3)
+        </button>
+</div>
+<!-- Mini Search & Quick Filter Bar -->
+<div class="px-space-md py-space-xs">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant shadow-xs focus:bg-surface-container-lowest focus:outline-none" id="notification-search" oninput="searchNotifications(this.value)" placeholder="Filter by Gat/Survey No, Corridor, or Scheme..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Scrollable Notification Feed -->
+<div class="flex-1 overflow-y-auto p-space-md flex flex-col gap-space-lg" id="notification-scroll-container">
+<!-- Section 1: Approvals Needed (Amber Code) -->
+<div class="notification-group flex flex-col gap-space-sm" data-group="approvals">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-[#92400e] font-bold">Approvals Needed</span>
+</div>
+<span class="font-data-mono text-[11px] text-on-surface-variant font-semibold">2 Critical Pending</span>
+</div>
+<!-- Item 1.A -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-[#f59e0b] bg-gradient-to-r from-amber-500/5 to-transparent flex flex-col gap-space-xs" data-role="action" data-status="unread">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-[#b45309]">verified</span>
+<h3 class="font-label-md text-label-md text-on-surface font-bold leading-snug">Statutory Section 19(1) Declaration Due</h3>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-data-mono text-[11px] text-on-surface-variant">12m ago</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse"></span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            NH-48 Western Freight Spur (Pkg 4B) — <strong class="text-on-surface font-semibold">18 days remaining</strong> before limitation lapse under RFCTLARR 2013.
+          </p>
+<div class="mt-1 flex items-center gap-space-xs flex-wrap">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-container transition-colors shadow-xs" onclick="triggerDscSignature('SO-19(1)-PKG4B')" type="button">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+<span>Review &amp; Sign (DSC)</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span>View Docket</span>
+</button>
+</div>
+</div>
+<!-- Item 1.B -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-[#f59e0b] bg-gradient-to-r from-amber-500/5 to-transparent flex flex-col gap-space-xs" data-role="action" data-status="unread">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-[#b45309]">account_balance_wallet</span>
+<h3 class="font-label-md text-label-md text-on-surface font-bold leading-snug">PFMS DBT Batch Approval #TR-2026-088</h3>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-data-mono text-[11px] text-on-surface-variant">45m ago</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse"></span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Reconciliation of <strong class="text-on-surface font-semibold">₹142.50 Cr</strong> for 612 Khatedars in Palghar requires Divisional Commissioner authorization.
+          </p>
+<div class="mt-1 flex items-center gap-space-xs">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold hover:opacity-90 transition-opacity shadow-xs" onclick="authorizeBatch('TR-2026-088')" type="button">
+<span class="material-symbols-outlined text-[16px]">send_money</span>
+<span>Authorize e-Kuber</span>
+</button>
+</div>
+</div>
+<!-- Item 1.C -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-[#f59e0b]/50 flex flex-col gap-space-xs opacity-85" data-role="info" data-status="read">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">gavel</span>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold leading-snug">Section 15 Gram Sabha Objection Scrutiny</h3>
+</div>
+<span class="font-data-mono text-[11px] text-on-surface-variant shrink-0">2h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Vangaon Village PESA resolution submitted by BDO Dahanu awaiting District CALA remark.
+          </p>
+</div>
+</div>
+<!-- Section 2: Delays & Escalations (Red Code) -->
+<div class="notification-group flex flex-col gap-space-sm" data-group="escalations">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error font-bold">Delays &amp; Escalations</span>
+</div>
+<span class="font-data-mono text-[11px] text-error font-semibold">Statutory Alert</span>
+</div>
+<!-- Item 2.A -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-error bg-gradient-to-r from-error/5 to-transparent flex flex-col gap-space-xs" data-role="action" data-status="unread">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-error">warning</span>
+<h3 class="font-label-md text-label-md text-error font-bold leading-snug">High Court Interim Stay Injunction</h3>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-data-mono text-[11px] text-on-surface-variant">3h ago</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-error animate-pulse"></span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-semibold">Gat No. 415/416 (Mauza Vangaon)</strong> — Writ petition filed regarding co-sharer heirship dispute. Solatium disbursal frozen.
+          </p>
+<div class="mt-1 flex items-center gap-space-xs">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold hover:bg-opacity-80 transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Inspect Cadastre &amp; Injunction</span>
+</button>
+</div>
+</div>
+<!-- Item 2.B -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-error bg-gradient-to-r from-error/5 to-transparent flex flex-col gap-space-xs" data-role="escalation" data-status="unread">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-error">error_outline</span>
+<h3 class="font-label-md text-label-md text-on-surface font-bold leading-snug">Statutory SLA Breach Warning (&gt;90 Days)</h3>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-data-mono text-[11px] text-on-surface-variant">5h ago</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-error animate-pulse"></span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Western DFC Pkg 12 — Sec 23 Award inquiry delayed by 14 days. Escalated to Principal Secretary (Revenue).
+          </p>
+<div class="mt-1 flex items-center gap-space-xs">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">assignment_late</span>
+<span>View Escalation Note</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section 3: Updates (Teal Code) -->
+<div class="notification-group flex flex-col gap-space-sm" data-group="updates">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Cadastre &amp; Treasury Updates</span>
+</div>
+<span class="font-data-mono text-[11px] text-secondary font-semibold">NIC Heartbeat Sync</span>
+</div>
+<!-- Item 3.A -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-secondary bg-gradient-to-r from-secondary/5 to-transparent flex flex-col gap-space-xs" data-role="info" data-status="unread">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">satellite_alt</span>
+<h3 class="font-label-md text-label-md text-on-surface font-bold leading-snug">Drone Orthomosaic Survey Uploaded</h3>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-data-mono text-[11px] text-on-surface-variant">1h ago</span>
+<span class="unread-dot w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Survey of India CORS RTK validated 4/4 peg markers for <strong class="text-on-surface font-semibold">Survey No. 104/2B (3.42 Ha)</strong>.
+          </p>
+<div class="mt-1 flex items-center gap-space-xs">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span>View Drone Ortho</span>
+</button>
+</div>
+</div>
+<!-- Item 3.B -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-secondary/50 flex flex-col gap-space-xs opacity-85" data-role="info" data-status="read">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">verified_user</span>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold leading-snug">NIC-Pramaan Merkle Root Re-anchored</h3>
+</div>
+<span class="font-data-mono text-[11px] text-on-surface-variant shrink-0">4h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Automated hourly cryptographic heartbeat verified 148 cadastral schedules. 100% integrity intact.
+          </p>
+</div>
+<!-- Item 3.C -->
+<div class="notification-card group relative p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all border-l-4 border-l-secondary/50 flex flex-col gap-space-xs opacity-85" data-role="info" data-status="read">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">price_check</span>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold leading-snug">e-Kuber Escrow Disbursal Complete</h3>
+</div>
+<span class="font-data-mono text-[11px] text-on-surface-variant shrink-0">Yesterday, 18:20 IST</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            ₹3,42,80,000 credited to Ramesh S. Patil &amp; 2 Co-sharers (UTR #202602240982).
+          </p>
+</div>
+</div>
+</div>
+<!-- Drawer Sticky Footer -->
+<div class="p-space-md bg-surface-container-low shadow-[0_-2px_10px_rgba(0,0,0,0.04)] flex items-center justify-between gap-space-sm">
+<button class="flex items-center gap-space-xs text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Notification Settings</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-highest text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Audit Activity Log</span>
+</button>
+</div>
+</aside>
+<!-- Client-Side Micro-Interactions Script -->
+<script>
+    function filterCategory(filterType, element) {
+      const tabs = document.querySelectorAll('.filter-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        tab.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      element.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+      element.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+      const cards = document.querySelectorAll('.notification-card');
+      const groups = document.querySelectorAll('.notification-group');
+
+      cards.forEach(card => {
+        const isUnread = card.getAttribute('data-status') === 'unread';
+        const isAction = card.getAttribute('data-role') === 'action';
+
+        if (filterType === 'all') {
+          card.classList.remove('hidden');
+        } else if (filterType === 'unread') {
+          if (isUnread) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        } else if (filterType === 'actions') {
+          if (isAction) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+
+      // Hide empty groups
+      groups.forEach(group => {
+        const visibleCards = group.querySelectorAll('.notification-card:not(.hidden)');
+        if (visibleCards.length === 0) {
+          group.classList.add('hidden');
+        } else {
+          group.classList.remove('hidden');
+        }
+      });
+    }
+
+    function searchNotifications(query) {
+      const q = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.notification-card');
+      const groups = document.querySelectorAll('.notification-group');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(q)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      groups.forEach(group => {
+        const visibleCards = group.querySelectorAll('.notification-card:not(.hidden)');
+        if (visibleCards.length === 0) {
+          group.classList.add('hidden');
+        } else {
+          group.classList.remove('hidden');
+        }
+      });
+    }
+
+    function markAllAsRead() {
+      const unreadCards = document.querySelectorAll('.notification-card[data-status="unread"]');
+      unreadCards.forEach(card => {
+        card.setAttribute('data-status', 'read');
+        card.classList.add('opacity-85');
+        const dot = card.querySelector('.unread-dot');
+        if (dot) dot.remove();
+      });
+
+      const badge = document.getElementById('unread-counter-badge');
+      if (badge) {
+        badge.innerText = '0 New';
+        badge.classList.remove('bg-error');
+        badge.classList.add('bg-secondary');
+      }
+    }
+
+    function triggerDscSignature(docketId) {
+      const btn = event.currentTarget;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">sync</span><span>Verifying e-Mudhra...</span>';
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span><span>Signed & Sealed</span>';
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-surface-container-high', 'text-secondary');
+      }, 1200);
+    }
+
+    function authorizeBatch(batchId) {
+      const btn = event.currentTarget;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">sync</span><span>Transmitting...</span>';
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">verified</span><span>e-Kuber Dispatched</span>';
+        btn.disabled = true;
+      }, 1000);
+    }
+  </script>
+</div></main></div></body></html>

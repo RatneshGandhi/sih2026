@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NLAMS - National Land Acquisition & Management System | Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            govNavy: '#132A4C',
+            govNavyDark: '#0A172A',
+            govEmerald: '#0E9F6E',
+            govEmeraldDark: '#057A55',
+            govAmber: '#F2A93B',
+            govAmberLight: '#FEF08A',
+            govSlate: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+              600: '#475569',
+              700: '#334155',
+              800: '#1E293B',
+              900: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tricolor-strip {
+      background: linear-gradient(90deg, #FF9933 0%, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%, #138808 100%);
+    }
+    .gis-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(14, 159, 110, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(14, 159, 110, 0.08) 1px, transparent 1px);
+    }
+    .radar-pulse {
+      animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.15); }
+    }
+  </style>
+</head>
+<body class="bg-govSlate-50 text-govSlate-900 font-sans min-h-screen flex flex-col antialiased selection:bg-govEmerald/20 selection:text-govNavy">
+
+  <!-- Micro Header / Top Gov Notification Bar -->
+  <header class="w-full bg-govNavy text-white text-xs border-b border-white/10 z-20 flex-shrink-0">
+    <div class="tricolor-strip h-[3px] w-full"></div>
+    <div class="max-w-[1600px] mx-auto px-6 py-2 flex items-center justify-between font-mono tracking-wide">
+      <div class="flex items-center space-x-4 text-govSlate-300">
+        <span class="flex items-center space-x-1.5 font-sans">
+          <span class="inline-block w-2 h-2 rounded-full bg-govEmerald radar-pulse"></span>
+          <span class="font-medium text-white">Smart India Hackathon 2026</span>
+          <span class="text-govSlate-400">|</span>
+          <span class="text-govSlate-200">Ministry of Rural Development &amp; Land Resources</span>
+        </span>
+        <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-govEmerald/20 text-emerald-300 border border-govEmerald/30">
+          RFCTLARR Act 2013 Compliant
+        </span>
+      </div>
+      <div class="flex items-center space-x-5 text-xs text-govSlate-300">
+        <div class="flex items-center space-x-1">
+          <span class="text-govSlate-400">Language:</span>
+          <button class="font-medium text-white hover:text-govAmber transition-colors">English</button>
+          <span class="text-govSlate-500">/</span>
+          <button class="font-medium text-govSlate-300 hover:text-govAmber transition-colors font-sans">हिंदी</button>
+        </div>
+        <div class="hidden lg:flex items-center space-x-3 pl-3 border-l border-white/10 text-[11px]">
+          <span class="flex items-center space-x-1 text-govSlate-300">
+            <svg class="w-3.5 h-3.5 text-govAmber" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"/>
+            </svg>
+            <span>SSL 256-bit Encrypted Portal</span>
+          </span>
+          <span class="text-govSlate-400">|</span>
+          <a href="#" class="text-govSlate-300 hover:text-white transition-colors">Helpdesk 1800-11-2026</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Layout (Split Screen) -->
+  <main class="flex-1 grid grid-cols-1 lg:grid-cols-12 w-full min-h-[calc(100vh-35px)]">
+
+    <!-- LEFT HALF: Hero GIS Panel (Col 1-7 on desktop) -->
+    <section class="lg:col-span-7 bg-govNavy text-white relative overflow-hidden flex flex-col justify-between p-8 lg:p-14 border-r border-govSlate-200/20">
+      
+      <!-- Subtle GIS coordinate grid background overlay -->
+      <div class="absolute inset-0 gis-grid pointer-events-none opacity-60"></div>
+      
+      <!-- Ambient Glow Blobs -->
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-govEmerald/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-govAmber/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Top Branding in Hero -->
+      <div class="relative z-10 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-2 flex items-center justify-center shadow-inner">
+            <svg class="w-full h-full text-govEmerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl font-extrabold tracking-tight text-white font-sans">NLAMS</span>
+              <span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-govEmerald/25 text-emerald-300 border border-govEmerald/40">v2.6 GIS-CORE</span>
+            </div>
+            <p class="text-xs text-govSlate-300 font-sans tracking-wide">National Land Acquisition &amp; Management System</p>
+          </div>
+        </div>
+
+        <div class="hidden sm:flex items-center space-x-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-xs backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-govSlate-300">National Node:</span>
+          <span class="font-mono font-medium text-white">NIC-MEITY-DEL</span>
+        </div>
+      </div>
+
+      <!-- Center Hero Visual & Headline -->
+      <div class="relative z-10 my-8 lg:my-auto max-w-2xl">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-govEmerald/20 to-govNavy/40 border border-govEmerald/35 text-xs text-emerald-300 font-medium mb-6">
+          <svg class="w-4 h-4 text-govAmber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span>Next-Gen Statutory Transparency &amp; Direct Benefit Transfer</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight font-sans">
+          Digital Land Acquisition for a <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-govAmber">Better Tomorrow.</span>
+        </h1>
+        
+        <p class="mt-4 text-base lg:text-lg text-govSlate-300 leading-relaxed font-light">
+          An integrated spatial governance platform accelerating statutory RFCTLARR compliance, automated DBT solatium disbursals, and drone-verified cadastral inspections across 28 states.
+        </p>
+
+        <!-- GIS Map Card Embed -->
+        <div class="mt-8 rounded-2xl border border-white/15 bg-govNavyDark/80 backdrop-blur-md p-4 shadow-2xl relative group overflow-hidden">
+          <div class="flex items-center justify-between mb-3 pb-2 border-b border-white/10 text-xs">
+            <div class="flex items-center space-x-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-400"></span>
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span class="font-mono text-govSlate-300 ml-2 font-medium">GIS_LAYER: LIVE_CORRIDOR_SURVEY_2026</span>
+            </div>
+            <span class="text-[11px] font-mono text-govEmerald bg-govEmerald/10 px-2 py-0.5 rounded border border-govEmerald/25">GeoJSON Cadastre Active</span>
+          </div>
+
+          <!-- The High-Tech India GIS Map Image from assets -->
+          <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-[#0c1b33] flex items-center justify-center border border-white/10">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsNMvJ-Ppb7NyuJtbkrRmEwiXqFTx-QP584v971t_3XjJkqIIWBXlSaDpST6vnyeqKGYHAmcoGhUx81LDJGcttktgToj0wFYmdKDrordOH6EXwblqve9O8r4myej3vFAw6q_lvKcZlwc977q3w9nwslWqJd9f2d46vKF4kWWIEzqJrK5a0PFioxodcj65gwlQ5MFA8g76kvoJblKVtC1hgHpmkDcpSWLS8SCzHKXBqhKRTds-2jaM98Q" alt="NLAMS GIS India Map Cadastral Grid" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700">
+            
+            <!-- Real-time HUD Callout Overlays -->
+            <div class="absolute top-4 left-4 bg-govNavy/90 backdrop-blur-md border border-emerald-500/30 rounded-lg p-2.5 text-xs shadow-lg max-w-[200px]">
+              <div class="flex items-center justify-between text-[10px] text-govSlate-400 font-mono">
+                <span>SECTOR 04-NHAI</span>
+                <span class="text-govEmerald font-bold">POSSESSION 89%</span>
+              </div>
+              <p class="text-white font-semibold mt-0.5 truncate">Delhi–Mumbai Expressway</p>
+              <div class="w-full bg-govSlate-700 h-1 rounded-full mt-1.5 overflow-hidden">
+                <div class="bg-govEmerald h-full rounded-full w-[89%]"></div>
+              </div>
+            </div>
+
+            <div class="absolute bottom-4 right-4 bg-govNavy/90 backdrop-blur-md border border-govAmber/40 rounded-lg p-2.5 text-xs shadow-lg flex items-center space-x-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-govAmber animate-ping"></div>
+              <div>
+                <div class="text-[10px] font-mono text-govSlate-400">BHARATMALA PH-2</div>
+                <div class="text-white font-semibold text-xs">Sec 11(1) Hearing Underway</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Metric Ticker -->
+          <div class="grid grid-cols-3 gap-3 mt-4 pt-3 border-t border-white/10 text-center">
+            <div class="p-2 rounded-lg bg-white/5">
+              <p class="text-[11px] text-govSlate-400 uppercase font-mono">Total Parcels Mapped</p>
+              <p class="text-lg font-bold text-white font-mono mt-0.5">14,82,190</p>
+            </div>
+            <div class="p-2 rounded-lg bg-white/5">
+              <p class="text-[11px] text-govSlate-400 uppercase font-mono">DBT Disbursed (FY26)</p>
+              <p class="text-lg font-bold text-govEmerald font-mono mt-0.5">₹ 24,910 Cr</p>
+            </div>
+            <div class="p-2 rounded-lg bg-white/5">
+              <p class="text-[11px] text-govSlate-400 uppercase font-mono">Avg. Possession Time</p>
+              <p class="text-lg font-bold text-govAmber font-mono mt-0.5">-62% Days</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Compliance & Trust Footer in Hero -->
+      <div class="relative z-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-govSlate-400 gap-3">
+        <div class="flex items-center space-x-3">
+          <span class="inline-flex items-center space-x-1.5 text-govSlate-300">
+            <svg class="w-4 h-4 text-govEmerald" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Aadhaar e-KYC Linked</span>
+          </span>
+          <span>•</span>
+          <span class="inline-flex items-center space-x-1.5 text-govSlate-300">
+            <svg class="w-4 h-4 text-govEmerald" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>PFMS Auto-Disbursement</span>
+          </span>
+          <span>•</span>
+          <span class="text-govSlate-300">BHOOMI &amp; RoR Integrations</span>
+        </div>
+        <div class="text-[11px] font-mono text-govSlate-400">
+          Govt. of India Initiative
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- RIGHT HALF: Modern Enterprise GovTech Login Card (Col 8-12 on desktop) -->
+    <section class="lg:col-span-5 bg-govSlate-50 flex items-center justify-center p-6 sm:p-10 lg:p-12 relative">
+      
+      <!-- Container for Login Card -->
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-xl shadow-slate-200/70 border border-govSlate-200 p-7 sm:p-9 relative">
+        
+        <!-- Header Logo & Portal Title -->
+        <div class="flex flex-col items-center text-center pb-6 border-b border-govSlate-100">
+          <div class="mb-3">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1VyDPtyVwjCXwSzoSqY5rzaGpAbgKa_zMGX-A6KcOYysCkWx7zyrbm8llOUYU-DjDL3fAGCA2kCICtQD0WIzJ7w9suTrx7ZIQFnmh0VSxWFyeHFPq-1BZAkTO_oirHRuNBfutVS0gpJqDaIcqZikjGMmGTvT4xg8lD58hgcox-uKBloi3BGE_gRZAXLx7oUEk_b5Ine-XMNvA1RTGeDCQwEbnR96brtDdNGTnUE4PpDDtTURG1YY1zjUq00" alt="NLAMS Official Emblem Wordmark" class="h-12 w-auto object-contain">
+          </div>
+          <h2 class="text-xl font-bold text-govSlate-900 tracking-tight font-sans">
+            Sign In to Unified Portal
+          </h2>
+          <p class="text-xs text-govSlate-500 mt-1 max-w-xs">
+            Authenticate to access statutory filings, cadastral land maps, and compensation ledger.
+          </p>
+        </div>
+
+        <!-- 5-Segment Role Selector Tabs -->
+        <div class="mt-6">
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-semibold text-govSlate-700 tracking-wide uppercase font-mono">
+              Select Stakeholder Role
+            </label>
+            <span class="text-[11px] font-medium text-govEmerald bg-govEmerald/10 px-2 py-0.5 rounded" id="role-badge">
+              Citizen Portal
+            </span>
+          </div>
+
+          <!-- Responsive Segmented Control -->
+          <div class="grid grid-cols-5 gap-1 p-1 bg-govSlate-100 rounded-xl border border-govSlate-200/80 text-[11px] font-medium" id="role-tabs">
+            <button type="button" data-role="citizen" data-placeholder="Aadhaar Number or Mobile / Claim ID" data-label="Citizen / Landowner" class="role-btn py-2 px-1 text-center rounded-lg font-semibold bg-white text-govNavy shadow-sm border border-govSlate-200 transition-all duration-150">
+              Citizen
+            </button>
+            <button type="button" data-role="field" data-placeholder="Surveyor Govt ID (G-ID)" data-label="Field Survey Officer" class="role-btn py-2 px-1 text-center rounded-lg text-govSlate-600 hover:text-govNavy hover:bg-white/60 transition-all duration-150">
+              Field Off.
+            </button>
+            <button type="button" data-role="district" data-placeholder="Collectorate Office SSO / NIC ID" data-label="District Administration (DM / SDM)" class="role-btn py-2 px-1 text-center rounded-lg text-govSlate-600 hover:text-govNavy hover:bg-white/60 transition-all duration-150">
+              District
+            </button>
+            <button type="button" data-role="state" data-placeholder="State Revenue Dept SSO ID" data-label="State Nodal Officer" class="role-btn py-2 px-1 text-center rounded-lg text-govSlate-600 hover:text-govNavy hover:bg-white/60 transition-all duration-150">
+              State
+            </button>
+            <button type="button" data-role="ministry" data-placeholder="Central Govt Parichay / NIC User ID" data-label="Central Ministry Official" class="role-btn py-2 px-1 text-center rounded-lg text-govSlate-600 hover:text-govNavy hover:bg-white/60 transition-all duration-150">
+              Ministry
+            </button>
+          </div>
+        </div>
+
+        <!-- Role description helper box -->
+        <div id="role-tip" class="mt-3 py-2 px-3 bg-govSlate-50 border border-govSlate-200/70 rounded-lg text-xs text-govSlate-600 flex items-center justify-between">
+          <span class="flex items-center space-x-1.5 truncate">
+            <svg class="w-3.5 h-3.5 text-govEmerald flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+            </svg>
+            <span id="role-desc">Mode: <strong>Landowner / PAF Entitlement Tracking</strong></span>
+          </span>
+          <span class="text-[10px] text-govSlate-400 font-mono">Tier-1</span>
+        </div>
+
+        <!-- Login Form -->
+        <form class="mt-5 space-y-4" onsubmit="event.preventDefault();">
+          
+          <!-- Identity / Email / Aadhaar Input -->
+          <div>
+            <label for="identity-input" id="identity-label" class="block text-xs font-semibold text-govSlate-700 mb-1.5">
+              Aadhaar Number / Linked Mobile / Registered Email
+            </label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-govSlate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+              </div>
+              <input 
+                type="text" 
+                id="identity-input" 
+                placeholder="Enter 12-digit Aadhaar or registered mobile" 
+                class="block w-full pl-9 pr-24 py-2.5 text-sm bg-white border border-govSlate-300 rounded-lg text-govSlate-900 placeholder-govSlate-400 focus:outline-none focus:ring-2 focus:ring-govNavy/20 focus:border-govNavy transition-colors font-sans"
+                required
+              >
+              <!-- Aadhaar OTP Quick Trigger for Citizens -->
+              <div id="otp-badge" class="absolute inset-y-0 right-0 pr-2 flex items-center">
+                <button type="button" class="text-[11px] font-semibold text-govEmerald hover:text-govEmeraldDark bg-emerald-50 px-2 py-1 rounded border border-emerald-200 transition-colors">
+                  Get OTP
+                </button>
+              </div>
+            </div>
+            <p class="text-[11px] text-govSlate-400 mt-1 font-mono">Format: XXXX-XXXX-XXXX or name@nic.in</p>
+          </div>
+
+          <!-- Password / OTP Field -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="password-input" class="block text-xs font-semibold text-govSlate-700">
+                Password / Aadhaar OTP
+              </label>
+              <a href="#" class="text-xs text-govEmerald hover:text-govEmeraldDark font-medium transition-colors">
+                Forgot Credentials?
+              </a>
+            </div>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-govSlate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+              </div>
+              <input 
+                type="password" 
+                id="password-input" 
+                placeholder="Enter account password or 6-digit OTP" 
+                class="block w-full pl-9 pr-10 py-2.5 text-sm bg-white border border-govSlate-300 rounded-lg text-govSlate-900 placeholder-govSlate-400 focus:outline-none focus:ring-2 focus:ring-govNavy/20 focus:border-govNavy transition-colors font-sans"
+                required
+              >
+              <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-govSlate-400 hover:text-govSlate-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Captcha Mock Verification Row -->
+          <div class="bg-govSlate-50 border border-govSlate-200 rounded-lg p-2.5 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="font-mono font-bold tracking-widest text-base px-2 py-0.5 bg-govSlate-200 text-govSlate-800 rounded select-none line-through decoration-govNavy/40">
+                8 K 4 W 9
+              </span>
+              <button type="button" title="Refresh Captcha" class="text-govSlate-500 hover:text-govNavy">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </button>
+            </div>
+            <input type="text" placeholder="Enter Captcha" class="w-32 py-1 px-2.5 text-xs border border-govSlate-300 rounded bg-white font-mono focus:outline-none focus:border-govNavy">
+          </div>
+
+          <!-- Primary Sign In Button -->
+          <button 
+            type="submit" 
+            class="w-full bg-govNavy hover:bg-govNavyDark text-white py-3 px-4 rounded-xl font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 group"
+          >
+            <span>Authenticate &amp; Enter NLAMS</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Divider with Text -->
+        <div class="relative my-5">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-govSlate-200"></div>
+          </div>
+          <div class="relative flex justify-center text-[11px] uppercase tracking-wider font-mono">
+            <span class="bg-white px-3 text-govSlate-400">or National SSO Provider</span>
+          </div>
+        </div>
+
+        <!-- DigiLocker / Government SSO Button -->
+        <div class="space-y-2.5">
+          <button 
+            type="button" 
+            class="w-full bg-white hover:bg-govSlate-50 text-govSlate-800 border border-govSlate-300 hover:border-govSlate-400 py-2.5 px-4 rounded-xl font-medium text-xs shadow-sm transition-all duration-150 flex items-center justify-center space-x-3 group"
+          >
+            <!-- DigiLocker emblem svg graphic -->
+            <div class="w-5 h-5 rounded-full bg-[#0E5296] text-white flex items-center justify-center font-bold text-[10px]">
+              DL
+            </div>
+            <span class="font-semibold text-govSlate-800">Login with DigiLocker / MeriPehchaan SSO</span>
+            <span class="text-[10px] bg-emerald-100 text-govEmerald font-semibold px-1.5 py-0.5 rounded">Fast KYC</span>
+          </button>
+
+          <button 
+            type="button" 
+            class="w-full bg-white hover:bg-govSlate-50 text-govSlate-700 border border-govSlate-200 py-2 px-3 rounded-xl font-normal text-xs transition-colors flex items-center justify-center space-x-2"
+          >
+            <svg class="w-4 h-4 text-govSlate-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Parichay (Govt Employee SSO) / e-Pramaan</span>
+          </button>
+        </div>
+
+        <!-- CITIZEN FAST TRACK: Track claim without login (Prominent Secondary Card) -->
+        <div class="mt-6 pt-5 border-t border-govSlate-100">
+          <div class="p-3.5 bg-gradient-to-r from-emerald-50/60 to-slate-50 border border-emerald-200/80 rounded-xl flex items-center justify-between">
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-govEmerald/15 text-govEmerald flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-govSlate-900">Are you a Landowner / Affected Person?</p>
+                <p class="text-[11px] text-govSlate-600">Track claim, award notification, or solatium without sign in</p>
+              </div>
+            </div>
+            <a 
+              href="#track-claim-modal" 
+              class="inline-flex items-center text-xs font-semibold text-govEmerald hover:text-govEmeraldDark bg-white px-3 py-1.5 rounded-lg border border-emerald-300 shadow-sm hover:shadow transition-all whitespace-nowrap ml-2"
+            >
+              <span>Track Claim</span>
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Security & Legal Notice -->
+        <div class="mt-5 text-center text-[10px] text-govSlate-400 leading-relaxed font-sans">
+          Unauthorized access to this government portal is punishable under Section 43 &amp; 66 of IT Act 2000. All activities and IP logs are audited by CERT-In.
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Interactive script for switching tabs and role contexts -->
+  <script>
+    const roleButtons = document.querySelectorAll('.role-btn');
+    const roleBadge = document.getElementById('role-badge');
+    const roleDesc = document.getElementById('role-desc');
+    const identityInput = document.getElementById('identity-input');
+    const identityLabel = document.getElementById('identity-label');
+    const otpBadge = document.getElementById('otp-badge');
+
+    const roleConfig = {
+      citizen: {
+        badge: 'Citizen Portal',
+        desc: 'Mode: <strong>Landowner / PAF Entitlement & Solatium Tracking</strong>',
+        inputLabel: 'Aadhaar Number / Linked Mobile / Application Reference ID',
+        placeholder: 'Enter 12-digit Aadhaar or registered mobile',
+        showOtp: true
+      },
+      field: {
+        badge: 'Field Inspection',
+        desc: 'Mode: <strong>Ground Cadastral Verification & Drone Orthomosaic Uploads</strong>',
+        inputLabel: 'Surveyor Registration ID / NIC Gov Email',
+        placeholder: 'e.g. SURV-DL-2026-8910',
+        showOtp: false
+      },
+      district: {
+        badge: 'District Administration',
+        desc: 'Mode: <strong>DC / SDM Statutory Scrutiny & Section 19 Declarations</strong>',
+        inputLabel: 'District Collectorate Office ID / Parichay SSO',
+        placeholder: 'e.g. collector.pune@nic.in',
+        showOtp: false
+      },
+      state: {
+        badge: 'State Nodal Desk',
+        desc: 'Mode: <strong>State Revenue & SIA Appraisal Authority Approval</strong>',
+        inputLabel: 'State Secretariat Government SSO / NIC Email',
+        placeholder: 'e.g. rev.nodal@maharashtra.gov.in',
+        showOtp: false
+      },
+      ministry: {
+        badge: 'Central Ministry',
+        desc: 'Mode: <strong>National Infrastructure Corridor Oversight & Escrow Clearance</strong>',
+        inputLabel: 'Central Ministry Parichay ID / MoRD Official ID',
+        placeholder: 'e.g. sec.mord@gov.in',
+        showOtp: false
+      }
+    };
+
+    roleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset all buttons
+        roleButtons.forEach(b => {
+          b.className = 'role-btn py-2 px-1 text-center rounded-lg text-govSlate-600 hover:text-govNavy hover:bg-white/60 transition-all duration-150';
+        });
+
+        // Set active button
+        btn.className = 'role-btn py-2 px-1 text-center rounded-lg font-semibold bg-white text-govNavy shadow-sm border border-govSlate-200 transition-all duration-150';
+
+        const role = btn.getAttribute('data-role');
+        const config = roleConfig[role];
+
+        if (config) {
+          roleBadge.textContent = config.badge;
+          roleDesc.innerHTML = config.desc;
+          identityLabel.textContent = config.inputLabel;
+          identityInput.placeholder = config.placeholder;
+          
+          if (config.showOtp) {
+            otpBadge.style.display = 'flex';
+          } else {
+            otpBadge.style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#7ef6be",
+          "on-surface-variant": "#44474e",
+          "on-secondary-container": "#00714c",
+          "outline": "#74777f",
+          "surface": "#f8f9ff",
+          "surface-container-low": "#eff4ff",
+          "tertiary-fixed": "#ffddb5",
+          "on-secondary-fixed-variant": "#005236",
+          "on-tertiary-fixed": "#2a1800",
+          "secondary": "#006c49",
+          "on-primary": "#ffffff",
+          "secondary-fixed": "#81f9c1",
+          "on-surface": "#0d1c2e",
+          "primary-fixed": "#d6e3ff",
+          "surface-dim": "#ccdbf3",
+          "tertiary-fixed-dim": "#ffb956",
+          "on-background": "#0d1c2e",
+          "surface-container-highest": "#d5e3fc",
+          "primary": "#001533",
+          "surface-tint": "#4a5f84",
+          "on-error": "#ffffff",
+          "on-tertiary-container": "#c68312",
+          "tertiary-container": "#3d2500",
+          "surface-container": "#e6eeff",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-fixed": "#011b3d",
+          "error-container": "#ffdad6",
+          "primary-container": "#132a4c",
+          "outline-variant": "#c4c6cf",
+          "background": "#f8f9ff",
+          "tertiary": "#221200",
+          "on-error-container": "#93000a",
+          "surface-variant": "#d5e3fc",
+          "on-primary-fixed-variant": "#32476b",
+          "inverse-on-surface": "#eaf1ff",
+          "on-secondary": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "inverse-surface": "#233144",
+          "on-primary-container": "#7d92ba",
+          "on-tertiary-fixed-variant": "#633f00",
+          "surface-bright": "#f8f9ff",
+          "primary-fixed-dim": "#b2c7f1",
+          "error": "#ba1a1a",
+          "on-secondary-fixed": "#002113",
+          "inverse-primary": "#b2c7f1",
+          "secondary-fixed-dim": "#63dca6",
+          "surface-container-high": "#dce9ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xs": "0.5rem",
+          "space-2xs": "0.25rem",
+          "space-sm": "0.75rem",
+          "margin-desktop": "2rem",
+          "space-md": "1rem",
+          "space-2xl": "3rem",
+          "margin-mobile": "1rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2rem",
+          "gutter": "1.5rem"
+        },
+        "fontFamily": {
+          "headline-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "display-hero": ["Inter"],
+          "data-mono": ["Inter"],
+          "display-hero-mobile": ["Inter"],
+          "label-md": ["Inter"]
+        },
+        "fontSize": {
+          "headline-lg": ["1.75rem", {"lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-sm": ["0.75rem", {"lineHeight": "1.125rem", "letterSpacing": "0", "fontWeight": "400"}],
+          "body-lg": ["1rem", {"lineHeight": "1.625rem", "letterSpacing": "0", "fontWeight": "400"}],
+          "headline-sm": ["1.125rem", {"lineHeight": "1.625rem", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-md": ["0.875rem", {"lineHeight": "1.375rem", "letterSpacing": "0", "fontWeight": "400"}],
+          "label-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-md": ["1.375rem", {"lineHeight": "1.875rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "display-hero": ["2.5rem", {"lineHeight": "3rem", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+          "data-mono": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "0.04em", "fontWeight": "500"}],
+          "display-hero-mobile": ["2rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-md": ["0.875rem", {"lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><div class="fixed top-0 left-0 w-full z-50 flex flex-col"><div class="w-full flex h-[3px]"><div class="flex-1 bg-[#FF9933]"></div><div class="flex-1 bg-[#FFFFFF]"></div><div class="flex-1 bg-[#138808]"></div></div><header class="w-full h-16 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #132a4c
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VyDPtyVwjCXwSzoSqY5rzaGpAbgKa_zMGX-A6KcOYysCkWx7zyrbm8llOUYU-DjDL3fAGCA2kCICtQD0WIzJ7w9suTrx7ZIQFnmh0VSxWFyeHFPq-1BZAkTO_oirHRuNBfutVS0gpJqDaIcqZikjGMmGTvT4xg8lD58hgcox-uKBloi3BGE_gRZAXLx7oUEk_b5Ine-XMNvA1RTGeDCQwEbnR96brtDdNGTnUE4PpDDtTURG1YY1zjUq00"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">NLAMS</span><span class="px-space-xs py-[2px] rounded bg-primary-container text-on-primary font-data-mono text-data-mono">GOV.IN</span></div><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">National Land Acquisition &amp; Management System</span></div></div><div class="flex-1 max-w-xl mx-space-xl"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-10 pr-space-md bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:bg-surface-container-lowest focus:outline-none shadow-sm transition-all" placeholder="Search by Proposal ID, Gazette No, Khasra/Survey No, or Land Owner..." type="search"/></div></div><div class="flex items-center gap-space-lg"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm font-semibold tracking-wide uppercase">NIC Cadastre Live</span><span class="text-on-secondary-container opacity-40">|</span><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-sm text-label-sm">Vault Secure</span></div><div class="relative cursor-pointer"><div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-on-surface-variant text-[20px]">notifications</span></div><span class="absolute -top-1 -right-1 h-4 min-w-[1rem] px-1 bg-error text-on-error rounded-full font-data-mono text-[10px] flex items-center justify-center font-bold">5</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden md:block"><div class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Shri R. K. Verma, IAS</div><div class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Divisional Commissioner / CA</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header></div><aside class="fixed left-0 top-[67px] bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between shadow-[1px_0_8px_rgba(0,0,0,0.02)]"><div class="flex flex-col flex-1 overflow-y-auto pt-space-md px-space-sm"><div class="px-space-sm mb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Central Cadastre</div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="proposals" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="font-label-md text-label-md">Proposals</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="land-records" href="#"><span class="material-symbols-outlined text-[20px]">landscape</span><span class="font-label-md text-label-md">Land Records</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="compensation-and-r-and-r" href="#"><span class="material-symbols-outlined text-[20px]">payments</span><span class="font-label-md text-label-md">Compensation &amp; R&amp;R</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="gis-map" href="#"><span class="material-symbols-outlined text-[20px]">map</span><span class="font-label-md text-label-md">GIS Map</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-label-md text-label-md">Reports</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg transition-colors bg-primary-container text-on-primary font-semibold shadow-sm" data-path="documents" href="#"><span class="material-symbols-outlined text-[20px]">folder</span><span class="font-label-md text-label-md">Documents</span></a></nav><div class="mt-space-md pt-space-xs px-space-sm mb-space-xs font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Governance &amp; Feeds</div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center justify-between px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="notifications" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-label-md text-label-md">Notifications</span></div><span class="px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-data-mono text-[10px] font-bold">12</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Settings</span></a></nav></div><div class="p-space-sm m-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-xs mb-1"><span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">DSC Module Active</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Token ID: e-Mudhra #98214</p></div></aside><div class="pl-64"><main class="w-full pt-[67px] bg-background min-h-screen"><div class="flex flex-col w-full space-y-space-md p-space-md lg:p-space-lg">
+<!-- Top Sovereign Breadcrumb & Statutory Authority Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 hover:text-on-surface cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+<span>National Portal</span>
+</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Documents &amp; Statutory Filings</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Maharashtra</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Palghar District</span>
+<span class="text-outline-variant">/</span>
+<span class="font-semibold text-on-surface flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[15px] text-primary">navigation</span>
+        NH-48 Expressway Corridor (Pkg 03)
+      </span>
+</nav>
+<div class="flex items-center gap-space-xs text-data-mono font-data-mono text-[11px] text-on-surface-variant bg-surface-container px-2.5 py-1 rounded">
+<span class="material-symbols-outlined text-[14px] text-secondary">encrypted</span>
+<span>NODE: NIC-MAH-WZ-041</span>
+<span class="text-outline-variant">•</span>
+<span>SYNCED: 14:42:19 IST</span>
+</div>
+</div>
+<!-- Top Vault Context Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="material-symbols-outlined text-[26px] text-primary p-1.5 rounded-lg bg-surface-container">shield_with_heart</span>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Secure Document Repository &amp; Cadastral Vault</h1>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+          e-Pramaan DSC Sign Validated
+        </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">gavel</span>
+          Section 65B Indian Evidence Act Compliant
+        </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">cloud_done</span>
+          Storage: 1.42 TB / 10 TB (NIC-MeghRaj Cloud)
+        </span>
+</div>
+</div>
+<!-- Header Sovereign Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="flex items-center gap-space-xs bg-primary text-on-primary hover:bg-primary-container px-space-md py-2.5 rounded-lg font-label-md text-label-md shadow-sm transition-all" id="triggerUploadBtn">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+<span>+ Upload Statutory Document</span>
+<span class="text-[10px] bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded font-data-mono font-bold uppercase">DSC Token</span>
+</button>
+<button class="flex items-center gap-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high px-space-md py-2.5 rounded-lg font-label-md text-label-md shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px] text-secondary">security_update_good</span>
+<span>Batch Verification (Hash Check)</span>
+</button>
+<button class="flex items-center gap-space-xs bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-sm py-2.5 rounded-lg font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span>Audit Report (CSV)</span>
+</button>
+</div>
+</div>
+<!-- Search & Statutory Filter Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-11 pl-10 pr-space-md bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" placeholder="Search by Khasra/Gat, Document title, Merkle Hash, Uploader..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="relative">
+<select class="h-11 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-sm text-label-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container">
+<option>All Document Types</option>
+<option>Gazette Notifications (Sec 4/11/19)</option>
+<option>Cadastral LPS &amp; Shapefiles</option>
+<option>7/12 RoR Title Deeds</option>
+<option>Social Impact (SIA)</option>
+<option>Forest / MoEFCC Clearance</option>
+<option>Valuation &amp; Solatium Records</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<div class="relative">
+<select class="h-11 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-sm text-label-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container">
+<option>Status: All</option>
+<option>✔ DSC Verified (Signed)</option>
+<option>⏳ Under Scrutiny</option>
+<option>⚠️ Flagged / Tampered</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button class="p-1.5 rounded-md bg-primary-container text-on-primary shadow-sm" title="List View">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Grid View">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Content Split Layout: Tree Navigator & Document Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<!-- Left Column: Cadastral Repository Hierarchy Tree (approx 280px / 3 cols) -->
+<div class="lg:col-span-3 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cadastre Hierarchy</h2>
+</div>
+<span class="text-[11px] font-data-mono font-semibold bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">LGD Map</span>
+</div>
+<!-- Tree Search -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[16px]">filter_alt</span>
+<input class="w-full h-8 pl-8 pr-2 bg-surface-container-low text-body-sm font-body-sm text-on-surface rounded focus:outline-none placeholder:text-on-surface-variant/70" placeholder="Filter folders &amp; projects..." type="text"/>
+</div>
+<!-- Recursive Tree Structure -->
+<div class="flex flex-col gap-1 text-body-sm font-body-sm text-on-surface overflow-y-auto max-h-[580px] pr-1">
+<!-- Root node -->
+<div class="flex items-center gap-1.5 px-2 py-1.5 rounded hover:bg-surface-container-low cursor-pointer text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">folder</span>
+<span class="truncate">Central Repository (Gazettes)</span>
+</div>
+<!-- Maharashtra (Expanded) -->
+<div class="flex flex-col">
+<div class="flex items-center justify-between px-2 py-1.5 rounded bg-surface-container-low font-semibold text-primary cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span class="truncate">Maharashtra (State)</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+<!-- Palghar District (Expanded) -->
+<div class="pl-4 flex flex-col mt-1 gap-1 border-l border-surface-container ml-2">
+<div class="flex items-center justify-between px-2 py-1 rounded bg-surface-container/60 font-medium text-on-surface cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">folder_open</span>
+<span class="truncate">Palghar District</span>
+</div>
+<span class="text-[10px] font-data-mono text-on-surface-variant">742</span>
+</div>
+<!-- Active Project Folder: NH-48 Pkg 03 -->
+<div class="pl-3 flex flex-col gap-1 border-l border-secondary/30 ml-2">
+<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold shadow-sm cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[17px] text-secondary-container">folder</span>
+<span class="truncate text-[13px]">NH-48 Expwy (Pkg 03)</span>
+</div>
+<span class="text-[10px] bg-secondary text-on-secondary px-1.5 py-0.2 rounded font-data-mono">148</span>
+</div>
+<!-- Sub-categories inside active project -->
+<div class="pl-4 flex flex-col gap-1 text-[12px] text-on-surface-variant pt-1">
+<div class="flex items-center justify-between py-1 px-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<span class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px]">description</span>Sec 19 Declarations</span>
+<span class="font-data-mono text-[10px]">24</span>
+</div>
+<div class="flex items-center justify-between py-1 px-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<span class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px]">architecture</span>Form-A Land Plans (LPS)</span>
+<span class="font-data-mono text-[10px]">42</span>
+</div>
+<div class="flex items-center justify-between py-1 px-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<span class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px]">fact_check</span>7/12 RoR Title Extracts</span>
+<span class="font-data-mono text-[10px]">68</span>
+</div>
+<div class="flex items-center justify-between py-1 px-1.5 hover:bg-surface-container-low rounded cursor-pointer">
+<span class="flex items-center gap-1 truncate"><span class="material-symbols-outlined text-[14px]">straighten</span>Joint Measurement (JMS)</span>
+<span class="font-data-mono text-[10px]">14</span>
+</div>
+</div>
+<!-- Other Projects in Palghar -->
+<div class="flex items-center justify-between px-2 py-1 hover:bg-surface-container-low rounded cursor-pointer text-on-surface-variant text-[13px]">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px]">folder</span>
+<span class="truncate">WDFC Corridor (Pkg 12)</span>
+</div>
+<span class="text-[10px] font-data-mono">184</span>
+</div>
+<div class="flex items-center justify-between px-2 py-1 hover:bg-surface-container-low rounded cursor-pointer text-on-surface-variant text-[13px]">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px]">folder</span>
+<span class="truncate">Dahanu Multi-Modal Node</span>
+</div>
+<span class="text-[10px] font-data-mono">92</span>
+</div>
+</div>
+<!-- Other Districts -->
+<div class="flex items-center justify-between px-2 py-1 rounded hover:bg-surface-container-low text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px]">folder</span>
+<span class="truncate">Thane District</span>
+</div>
+<span class="text-[10px] font-data-mono">310</span>
+</div>
+<div class="flex items-center justify-between px-2 py-1 rounded hover:bg-surface-container-low text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px]">folder</span>
+<span class="truncate">Pune District</span>
+</div>
+<span class="text-[10px] font-data-mono">420</span>
+</div>
+</div>
+</div>
+<!-- Gujarat State -->
+<div class="flex items-center justify-between px-2 py-1.5 rounded hover:bg-surface-container-low text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[18px]">folder</span>
+<span class="truncate">Gujarat State</span>
+</div>
+<span class="text-[10px] font-data-mono">560</span>
+</div>
+<!-- Uttar Pradesh State -->
+<div class="flex items-center justify-between px-2 py-1.5 rounded hover:bg-surface-container-low text-on-surface-variant cursor-pointer">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[18px]">folder</span>
+<span class="truncate">Uttar Pradesh</span>
+</div>
+<span class="text-[10px] font-data-mono">890</span>
+</div>
+</div>
+<!-- Quota & Ledger Status Widget -->
+<div class="mt-auto bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-secondary">token</span>
+            SHA-256 Ledger
+          </span>
+<span class="text-secondary font-bold">100% Intact</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-full rounded-full"></div>
+</div>
+<p class="text-[11px] font-data-mono text-on-surface-variant leading-tight">
+          Last cryptographic heartbeat verified by NIC MeghRaj Root CA at 14:40:02 IST.
+        </p>
+</div>
+</div>
+<!-- Right Column: Main Document Management Workspace (9 cols) -->
+<div class="lg:col-span-9 flex flex-col gap-space-md">
+<!-- Folder Context Banner -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">folder_open</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">NH-48 Vadodara-Mumbai Expwy (Pkg 03)</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-data-mono text-[11px] font-bold">LGD: 412093</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant flex flex-wrap items-center gap-space-xs">
+<span>148 Statutory Documents</span>
+<span>•</span>
+<span>Total Weight: 3.82 GB</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Last Vault Sync: 12 mins ago by SDO Dahanu (Competent Authority)
+            </span>
+</div>
+</div>
+<!-- Action Quick-Group -->
+<div class="flex items-center gap-1.5 self-start md:self-auto">
+<button class="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-surface-container-high text-label-sm font-label-sm rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Rescan Hashes</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-surface-container-high text-label-sm font-label-sm rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span>Ministry Export</span>
+</button>
+</div>
+</div>
+<!-- Quick Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 text-label-sm font-label-sm">
+<button class="px-3 py-1.5 rounded-full bg-primary text-on-primary font-semibold shadow-sm shrink-0">
+          All (148)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant hover:text-on-surface shadow-sm shrink-0 transition-colors">
+          Gazette Notifications (12)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant hover:text-on-surface shadow-sm shrink-0 transition-colors">
+          Cadastral GeoPDF / DWG (38)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant hover:text-on-surface shadow-sm shrink-0 transition-colors">
+          7/12 RoR Extracts (68)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant hover:text-on-surface shadow-sm shrink-0 transition-colors">
+          Environmental Clearances (8)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-error-container text-on-error-container font-semibold shadow-sm shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+          Disputed / Under Review (2)
+        </button>
+</div>
+<!-- Document Table / Data Grid -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 font-semibold">Document Title &amp; Format</th>
+<th class="py-3 px-3 font-semibold">Category / Stage</th>
+<th class="py-3 px-3 font-semibold">Version</th>
+<th class="py-3 px-3 font-semibold">Size &amp; SHA-256 Hash</th>
+<th class="py-3 px-3 font-semibold">Uploaded By</th>
+<th class="py-3 px-3 font-semibold">Verification State</th>
+<th class="py-3 px-4 font-semibold text-right">Vault Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-sm font-body-sm text-on-surface">
+<!-- Document 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      PDF
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                        NH48-Pkg3-Sec19-FinalGazette-Notification.pdf
+                      </span>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        GOI-MH-PAL-2026-GZ-88910 • Gazette of India Extraord.
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    Sec 19 Declaration
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary transition-colors font-data-mono text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v2.1
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">18.4 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24" title="SHA-256: 0x8a9f24e101bc9942e412">0x8a9f...e412</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">Ministry of Road Transport (MoRTH)</span>
+<span class="text-[11px] text-on-surface-variant">22 Feb 2026, 12:15</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                    NIC DSC Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Document 2: Target for Version Modal Showcase -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      DWG
+                    </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                          Form-A_Cadastral_Land_Plan_Schedule_Rev4.dwg
+                        </span>
+<span class="bg-secondary text-on-secondary text-[9px] px-1.5 py-0.2 rounded font-data-mono uppercase font-bold">Modal Demo</span>
+</div>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        Gat 401-460 Alignment • WGS84 EPSG:4326 Survey Pegged
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    Cadastral Land Plan
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-data-mono text-[11px] font-bold shadow-sm ring-2 ring-primary/20">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v4.0
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">68.2 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24" title="SHA-256: 0x9f7b11c4...3e81">0x9f7b...3e81</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">Er. S. K. Deshmukh (SLO)</span>
+<span class="text-[11px] text-on-surface-variant">22 Feb 2026, 14:30</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                    NIC DSC Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 text-primary bg-primary/10 hover:bg-primary/20 rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Document 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      PDF
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                        Mauza_Vangaon_Gat_412_RoR_Extract_Consolidated.pdf
+                      </span>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        Mahabhulekh MahaDBR Digital Sign Token #0912
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    RoR 7/12 Extract
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary transition-colors font-data-mono text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v1.3
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">4.8 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24">0x42cc...911b</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">Tahasildar Dahanu (Revenue)</span>
+<span class="text-[11px] text-on-surface-variant">21 Feb 2026, 17:04</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                    NIC DSC Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Document 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      PDF
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                        MoEFCC_Stage1_Forest_Diversion_Clearance_Order.pdf
+                      </span>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        FC-ACT-1980 / 14.88 Ha Dahanu Mangrove &amp; Teak Belt
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    Forest Stage-1 Clear.
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary transition-colors font-data-mono text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v2.0
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">12.1 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24">0x11ee...66ab</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">DFO Thane Division (Forest)</span>
+<span class="text-[11px] text-on-surface-variant">19 Feb 2026, 11:30</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                    NIC DSC Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Document 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      TIFF
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                        Drone_Orthomosaic_Boundary_Demarcation_GeoTIFF.zip
+                      </span>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        GSD 2.5cm/px • Survey of India CORS Benchmark
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    UAV Orthophoto
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary transition-colors font-data-mono text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v1.0
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">412 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24">0x07f4...da18</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">Empanelled Geomatics Agency</span>
+<span class="text-[11px] text-on-surface-variant">15 Feb 2026, 16:45</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                    NIC DSC Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Document 6 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      XLSX
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                        Joint_Measurement_Survey_JMS_Report_Vangaon.xlsx
+                      </span>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        Field Tabulation: 124 Papaya &amp; Chikoo Orchard Valuations
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    JMS Survey Field Tab
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary transition-colors font-data-mono text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v3.0
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">8.6 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24">0x3b1c...a001</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">Horticulture Officer &amp; SLO</span>
+<span class="text-[11px] text-on-surface-variant">12 Feb 2026, 18:20</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">pending</span>
+                    Under CALA Scrutiny
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Document 7 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center font-data-mono font-bold text-[11px] shrink-0">
+                      PDF
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface truncate group-hover:text-primary transition-colors cursor-pointer">
+                        Section_3G_Arbitration_Claims_Dossier_Batch2.pdf
+                      </span>
+<span class="text-[11px] text-on-surface-variant font-data-mono truncate">
+                        Claimants: Patil vs. NHAI Arbitrator Bench
+                      </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-[11px]">
+                    Arbitration Claims
+                  </span>
+</td>
+<td class="py-3.5 px-3">
+<button class="versionHistoryTrigger inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high hover:bg-primary hover:text-on-primary transition-colors font-data-mono text-[11px] font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[13px]">history</span>
+                    v1.1
+                  </button>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-data-mono text-[11px] text-on-surface font-semibold">15.2 MB</span>
+<span class="font-data-mono text-[10px] text-on-surface-variant truncate w-24">0xd831...2c04</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<div class="flex flex-col">
+<span class="font-semibold text-[12px] truncate">Registrar, Land Acquisition Bench</span>
+<span class="text-[11px] text-on-surface-variant">08 Feb 2026, 10:02</span>
+</div>
+</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">report</span>
+                    Title Conflict Flagged
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Quick Preview"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
+<button class="versionHistoryTrigger p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Version Audit"><span class="material-symbols-outlined text-[18px]">schedule</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="Download Signed Copy"><span class="material-symbols-outlined text-[18px]">download</span></button>
+<button class="p-1 hover:text-primary hover:bg-surface-container rounded transition-colors" title="More Actions"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="p-space-sm bg-surface-container-low flex flex-wrap items-center justify-between gap-space-xs text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Showing <strong>1-7</strong> of <strong>148</strong> documents</span>
+<span>•</span>
+<span class="font-data-mono text-[11px]">Page 1 of 22</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 bg-surface-container-lowest rounded text-on-surface font-medium hover:bg-surface-container transition-colors disabled:opacity-40" disabled="">Previous</button>
+<button class="w-7 h-7 bg-primary text-on-primary rounded font-semibold text-[12px] flex items-center justify-center">1</button>
+<button class="w-7 h-7 bg-surface-container-lowest text-on-surface rounded font-medium text-[12px] hover:bg-surface-container flex items-center justify-center">2</button>
+<button class="w-7 h-7 bg-surface-container-lowest text-on-surface rounded font-medium text-[12px] hover:bg-surface-container flex items-center justify-center">3</button>
+<span class="px-1">...</span>
+<button class="w-7 h-7 bg-surface-container-lowest text-on-surface rounded font-medium text-[12px] hover:bg-surface-container flex items-center justify-center">22</button>
+<button class="px-2.5 py-1 bg-surface-container-lowest rounded text-on-surface font-medium hover:bg-surface-container transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Prominent Version History Modal (Direct Implementation / Open State) -->
+<!-- Users can close it with close buttons or backdrop click, or open it via version badges/icons -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-sm sm:p-space-md bg-primary/60 backdrop-blur-sm transition-all duration-200" id="versionControlModal">
+<div class="bg-surface-container-lowest w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[921px] animate-in fade-in zoom-in-95">
+<!-- Modal Header -->
+<div class="p-space-md bg-surface-container-low flex items-start justify-between gap-space-sm border-b border-surface-container">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">history_edu</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Document Version Control &amp; Tamper-Proof Audit Trail</h2>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-data-mono text-body-sm font-semibold text-primary bg-surface-container px-2 py-0.5 rounded">
+              Form-A_Cadastral_Land_Plan_Schedule_Rev4.dwg
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-data-mono text-[11px] font-bold">
+              CURRENT: v4.0
+            </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+            Blockchain / Merkle Tree Section 65B Audit Log • Cryptographically Signed
+          </p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container flex items-center justify-center text-on-surface transition-colors" id="closeModalTopBtn" title="Close Modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body: Interactive Chronological Timeline -->
+<div class="p-space-md sm:p-space-lg overflow-y-auto space-y-space-md">
+<!-- Timeline Item 1: v4.0 (Current) -->
+<div class="relative pl-7 pb-2 border-l-2 border-primary">
+<span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>
+</span>
+<div class="bg-surface-container-high/40 p-space-sm sm:p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-data-mono text-label-sm font-bold">v4.0 (Current - Active)</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-data-mono">22 Feb 2026, 14:30 IST</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+                Current Active Version
+              </span>
+</div>
+<div class="flex items-center gap-2 pt-1 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">person</span>
+<span class="font-semibold">Er. S. K. Deshmukh</span>
+<span class="text-on-surface-variant text-[12px]">(Superintending Cadastral Surveyor, Palghar)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest p-2.5 rounded-lg">
+              Boundary peg realignment on Gat 412 following NHAI Package 03 intersection widening. <strong>0.42 Ha added</strong>. Validated against CORS GPS RTK Station Dahanu.
+            </p>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="text-[11px] font-data-mono text-on-surface-variant flex items-center gap-2">
+<span>DSC: #88192-NIC (Valid)</span>
+<span>•</span>
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-primary">SHA-256: 0x9f7b11c4...3e81</span>
+</div>
+<button class="px-3 py-1 bg-primary text-on-primary hover:bg-primary-container text-label-sm font-label-sm rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">download</span>
+<span>Download v4.0 (68.2 MB)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2: v3.1 -->
+<div class="relative pl-7 pb-2 border-l-2 border-surface-container-highest">
+<span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-surface-container-highest"></span>
+<div class="bg-surface-container-low p-space-sm sm:p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-data-mono text-label-sm font-bold">v3.1</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-data-mono">10 Jan 2026, 11:15 IST</span>
+</div>
+<span class="text-label-sm text-on-surface-variant text-[12px]">Superseded</span>
+</div>
+<div class="flex items-center gap-2 pt-1 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">person</span>
+<span class="font-semibold">SDO Dahanu</span>
+<span class="text-on-surface-variant text-[12px]">(Competent Authority Land Acquisition)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest p-2.5 rounded-lg">
+              Exclusion of village public pond (Gat 415) following Gram Sabha Section 15 objections and subsequent revenue enquiry report.
+            </p>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="text-[11px] font-data-mono text-on-surface-variant flex items-center gap-2">
+<span>DSC: #77410-NIC</span>
+<span>•</span>
+<span class="bg-surface-container px-1.5 py-0.5 rounded">SHA-256: 0x5a2e99b1...8d04</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface text-label-sm font-label-sm rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">difference</span>
+<span>Compare with v4.0</span>
+</button>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface text-label-sm font-label-sm rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">download</span>
+<span>Download (67.8 MB)</span>
+</button>
+<button class="px-2 py-1 text-secondary font-label-sm text-[12px] hover:underline">Restore</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3: v2.0 -->
+<div class="relative pl-7 pb-2 border-l-2 border-surface-container-highest">
+<span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-surface-container-highest"></span>
+<div class="bg-surface-container-low p-space-sm sm:p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-data-mono text-label-sm font-bold">v2.0</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-data-mono">14 Nov 2025, 09:40 IST</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">person</span>
+<span class="font-semibold">NHAI Project Director</span>
+<span class="text-on-surface-variant text-[12px]">(PIU Mumbai Expressways)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest p-2.5 rounded-lg">
+              Initial corridor alignment demarcation incorporating RoW 60m buffer parameters and toll plaza footprint adjustments.
+            </p>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="text-[11px] font-data-mono text-on-surface-variant flex items-center gap-2">
+<span>DSC: #55120-NIC</span>
+<span>•</span>
+<span class="bg-surface-container px-1.5 py-0.5 rounded">SHA-256: 0x11ce774a...92b7</span>
+</div>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface text-label-sm font-label-sm rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">download</span>
+<span>Download (65.4 MB)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Timeline Item 4: v1.0 Original -->
+<div class="relative pl-7">
+<span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-surface-container-highest"></span>
+<div class="bg-surface-container-low p-space-sm sm:p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-data-mono text-label-sm font-bold">v1.0 (Original Filing)</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-data-mono">02 Oct 2025, 16:20 IST</span>
+</div>
+<span class="text-[11px] font-data-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Genesis Record</span>
+</div>
+<div class="flex items-center gap-2 pt-1 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">engineering</span>
+<span class="font-semibold">Consultant Geomatics Ltd</span>
+<span class="text-on-surface-variant text-[12px]">(DPR Survey Agency)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest p-2.5 rounded-lg">
+              Baseline feasibility survey alignment digitized from Taluk Land Office Village Sheets.
+            </p>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="text-[11px] font-data-mono text-on-surface-variant flex items-center gap-2">
+<span>DSC: #31901-NIC</span>
+<span>•</span>
+<span class="bg-surface-container px-1.5 py-0.5 rounded">SHA-256: 0x00ff812d...1a9e</span>
+</div>
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface text-label-sm font-label-sm rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">download</span>
+<span>Download (64.1 MB)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-space-md bg-surface-container-low border-t border-surface-container flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 text-label-sm font-label-sm">
+<button class="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">layers</span>
+<span>Diff CAD Overlay</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>Export Merkle Audit Chain (PDF)</span>
+</button>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md rounded-lg shadow-sm" id="closeModalBottomBtn">
+          ✕ Close Modal
+        </button>
+</div>
+</div>
+</div>
+<!-- Inline Micro-interaction Script to Toggle Modal -->
+<script>
+    (function() {
+      const modal = document.getElementById('versionControlModal');
+      const closeTop = document.getElementById('closeModalTopBtn');
+      const closeBottom = document.getElementById('closeModalBottomBtn');
+      const triggers = document.querySelectorAll('.versionHistoryTrigger');
+      const uploadBtn = document.getElementById('triggerUploadBtn');
+
+      function openModal() {
+        if (modal) modal.classList.remove('hidden');
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.add('hidden');
+      }
+
+      if (closeTop) closeTop.addEventListener('click', closeModal);
+      if (closeBottom) closeBottom.addEventListener('click', closeModal);
+
+      // Close on clicking backdrop outside card
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+
+      triggers.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      if (uploadBtn) {
+        uploadBtn.addEventListener('click', function() {
+          alert('e-Pramaan DSC Signing Bridge: Connect USB Cryptographic Token (e-Mudhra / SafeNet) to sign and upload statutory documents.');
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>
