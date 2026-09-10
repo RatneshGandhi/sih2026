@@ -1,13 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { useUIStore } from '../store/uiStore';
 import { useNavigate } from 'react-router-dom';
 
+const DEMO_ROLES = [
+  { key: 'citizen', label: 'Citizen / Landowner', icon: 'person', path: '/citizen', color: 'text-govSlate-700' },
+  { key: 'field_officer', label: 'Field Survey Officer', icon: 'straighten', path: '/field', color: 'text-govEmerald' },
+  { key: 'district_official', label: 'District Magistrate / CALA', icon: 'gavel', path: '/district', color: 'text-indigo-600' },
+  { key: 'state_official', label: 'State Revenue Dept', icon: 'corporate_fare', path: '/state', color: 'text-purple-600' },
+  { key: 'ministry_official', label: 'Central Ministry (MoRD)', icon: 'account_balance', path: '/ministry', color: 'text-amber-600' }
+];
+
 export default function Header() {
-  const { user, logout } = useAuthStore();
+  const { user, logout, quickLogin } = useAuthStore();
   const { unreadCount, setNotificationsDrawerOpen, reseedDatabase } = useUIStore();
   const [reseedLoading, setReseedLoading] = useState(false);
+  const [isRoleMenuOpen, setIsRoleMenuOpen] = useState(false);
+  const [switchingRole, setSwitchingRole] = useState(false);
+  const roleMenuRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (roleMenuRef.current && !roleMenuRef.current.contains(e.target)) {
+        setIsRoleMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSwitchRole = async (roleKey, path) => {
+    setSwitchingRole(true);
+    try {
+      await quickLogin(roleKey);
+      setIsRoleMenuOpen(false);
+      navigate(path);
+    } catch (err) {
+      console.error('Failed to switch demo persona:', err);
+    } finally {
+      setSwitchingRole(false);
+    }
+  };
 
   const handleReseed = async () => {
     if (window.confirm('Reset NLAMS database to initial seeded state for the demo?')) {
@@ -83,6 +117,56 @@ export default function Header() {
 
         {/* Right Suite: Jury Demo Reseed + Notifications + User Chip */}
         <div className="flex items-center gap-space-xs sm:gap-space-sm">
+          {/* 1-Click Demo Persona Switcher */}
+          <div className="relative" ref={roleMenuRef}>
+            <button
+              onClick={() => setIsRoleMenuOpen(!isRoleMenuOpen)}
+              disabled={switchingRole}
+              title="Switch stakeholder persona for demo"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-primary text-white hover:bg-primary-container text-xs font-semibold shadow-xs transition-all"
+            >
+              <span className="material-symbols-outlined text-[16px] text-govEmerald">
+                swap_horiz
+              </span>
+              <span className="hidden md:inline">Switch Role</span>
+              <span className="material-symbols-outlined text-[14px]">
+                {isRoleMenuOpen ? 'expand_less' : 'expand_more'}
+              </span>
+            </button>
+
+            {isRoleMenuOpen && (
+              <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-govSlate-200 py-1.5 z-50 animate-fade-in">
+                <div className="px-3 py-1.5 border-b border-govSlate-100 text-[10px] font-mono uppercase tracking-wider font-bold text-govSlate-400">
+                  Switch Stakeholder Persona
+                </div>
+                {DEMO_ROLES.map((role) => {
+                  const isCurrent = user?.role === role.key;
+                  return (
+                    <button
+                      key={role.key}
+                      onClick={() => handleSwitchRole(role.key, role.path)}
+                      className={`w-full text-left px-3 py-2 flex items-center gap-2.5 text-xs transition-colors ${
+                        isCurrent
+                          ? 'bg-govSlate-100 font-bold text-primary'
+                          : 'hover:bg-govSlate-50 text-govSlate-700'
+                      }`}
+                    >
+                      <span className={`material-symbols-outlined text-[18px] ${role.color}`}>
+                        {role.icon}
+                      </span>
+                      <div className="flex-1">
+                        <div className="font-semibold text-xs leading-tight">{role.label}</div>
+                      </div>
+                      {isCurrent && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-govEmerald"></span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {/* Quick Jury Demo Reset Button */}
           <button
             onClick={handleReseed}

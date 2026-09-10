@@ -1,8 +1,8 @@
 import React from 'react';
 import { NATIONAL_KPIS, MINISTRY_INFO } from '../../data/ministryData';
 
-export default function NationalOverview({ onNavigateTab }) {
-  const kpi = NATIONAL_KPIS;
+export default function NationalOverview({ onNavigateTab, kpis }) {
+  const kpi = kpis || NATIONAL_KPIS;
 
   return (
     <div className="flex flex-col gap-6 animate-fade-in">

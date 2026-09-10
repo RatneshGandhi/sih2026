@@ -8,9 +8,9 @@
     "seed": "node server/db/seed.js",
     "db:setup": "node server/db/migrations.js && node server/db/seed.js",
     "db:start": "node -e \"require('./server/db/ensureDb').ensurePostgresRunning()\"",
-    "server": "node server/index.js",
+    "server": "node --watch server/index.js",
     "client": "npm --prefix client run dev",
-    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"node server/index.js\" \"npm --prefix client run dev\""
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"node --watch server/index.js\" \"npm --prefix client run dev\""
   },
   "devDependencies": {
     "concurrently": "^9.2.4"

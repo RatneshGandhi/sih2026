@@ -62,6 +62,7 @@ app.use('/api/compensation', require('./routes/compensation'));
 app.use('/api/documents', require('./routes/documents'));
 app.use('/api/notifications', require('./routes/notifications'));
 app.use('/api/citizen', require('./routes/citizen'));
+app.use('/api/district', require('./routes/district'));
 app.use('/api/field', require('./routes/fieldOfficer'));
 app.use('/api/state', require('./routes/stateGovernment'));
 app.use('/api/admin', require('./routes/admin'));

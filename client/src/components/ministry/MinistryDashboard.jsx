@@ -23,6 +23,7 @@ import {
   PREDICTIVE_DELAY_PROJECTS,
   PARCEL_P103_READONLY
 } from '../../data/ministryData';
+import api from '../../api/client';
 
 const TABS = [
   { id: 'overview', label: 'National Overview', icon: 'dashboard' },
@@ -45,6 +46,34 @@ export default function MinistryDashboard() {
   const [searchParams, setSearchParams] = useSearchParams();
   const tabFromUrl = searchParams.get('tab');
   const [activeTab, setActiveTabState] = useState(tabFromUrl || 'overview');
+  const [liveKpis, setLiveKpis] = useState(NATIONAL_KPIS);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadMinistrySummary() {
+      try {
+        const res = await api.get('/dashboard/summary');
+        if (res.data?.kpis && isMounted) {
+          const k = res.data.kpis;
+          setLiveKpis((prev) => ({
+            ...prev,
+            landProposedHa: parseFloat(k.total_area_notified_ha) || prev.landProposedHa,
+            landAcquiredHa: parseFloat(k.total_area_acquired_ha) || prev.landAcquiredHa,
+            acquisitionProgressPct: parseFloat(k.pct_acquired) || prev.acquisitionProgressPct,
+            compensationAssessedCr: parseFloat(k.total_compensation_assessed_cr) || prev.compensationAssessedCr,
+            compensationDisbursedCr: parseFloat(k.total_compensation_paid_cr) || prev.compensationDisbursedCr,
+            affectedFamilies: k.total_families_affected || prev.affectedFamilies,
+            possessionCompletedPct: parseFloat(k.pct_possession) || prev.possessionCompletedPct,
+            rrCompletedPct: parseFloat(k.pct_rnr_completed) || prev.rrCompletedPct
+          }));
+        }
+      } catch (err) {
+        console.warn('Ministry dashboard live sync fallback:', err.message);
+      }
+    }
+    loadMinistrySummary();
+    return () => { isMounted = false; };
+  }, []);
 
   useEffect(() => {
     if (tabFromUrl && tabFromUrl !== activeTab) {
@@ -276,7 +305,7 @@ export default function MinistryDashboard() {
       {/* Main Tab View Rendering */}
       <main className="w-full">
         {activeTab === 'overview' && (
-          <NationalOverview onNavigateTab={(tab) => setActiveTab(tab)} />
+          <NationalOverview onNavigateTab={(tab) => setActiveTab(tab)} kpis={liveKpis} />
         )}
 
         {activeTab === 'gis' && (

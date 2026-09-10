@@ -24,6 +24,7 @@ import {
   DISTRICT_AUDIT_LOGS
 } from '../../data/districtData';
 import { useAuthStore } from '../../store/authStore';
+import api from '../../api/client';
 
 const TABS = [
   { id: 'overview', label: 'Executive Overview', icon: 'dashboard' },
@@ -74,6 +75,29 @@ export default function DistrictDashboard() {
   const [activeDocModalItem, setActiveDocModalItem] = useState(null);
   const [auditLogs, setAuditLogs] = useState(DISTRICT_AUDIT_LOGS);
   const [kpis, setKpis] = useState(DISTRICT_KPIS);
+
+  // Load live DB metrics and audit logs on mount
+  useEffect(() => {
+    let isMounted = true;
+    async function loadOverviewMetrics() {
+      try {
+        const res = await api.get('/district/overview');
+        if (res.data?.kpis && isMounted) {
+          setKpis((prev) => ({
+            ...prev,
+            ...res.data.kpis
+          }));
+        }
+        if (res.data?.auditLogs && Array.isArray(res.data.auditLogs) && res.data.auditLogs.length > 0 && isMounted) {
+          setAuditLogs(res.data.auditLogs);
+        }
+      } catch (err) {
+        console.warn('District overview live metrics sync fallback:', err.message);
+      }
+    }
+    loadOverviewMetrics();
+    return () => { isMounted = false; };
+  }, []);
 
   // Search Results for Quick Bar
   const searchResults = useMemo(() => {

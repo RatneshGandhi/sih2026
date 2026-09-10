@@ -151,9 +151,16 @@ async function migrate() {
         reason_category VARCHAR(50) NOT NULL CHECK (reason_category IN ('boundary_discrepancy', 'ownership_dispute', 'compensation_dispute', 'other')),
         description TEXT NOT NULL,
         document_id INTEGER REFERENCES documents(id) ON DELETE SET NULL,
-        status VARCHAR(50) NOT NULL DEFAULT 'submitted' CHECK (status IN ('submitted', 'under_review', 'resolved')),
+        status VARCHAR(50) NOT NULL DEFAULT 'submitted' CHECK (status IN ('submitted', 'under_review', 'hearing_scheduled', 'resolved', 'dismissed')),
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       );
+
+      ALTER TABLE objections ADD COLUMN IF NOT EXISTS reference_number VARCHAR(100);
+      ALTER TABLE objections ADD COLUMN IF NOT EXISTS hearing_date TIMESTAMP WITH TIME ZONE;
+      ALTER TABLE objections ADD COLUMN IF NOT EXISTS hearing_notes TEXT;
+      ALTER TABLE objections ADD COLUMN IF NOT EXISTS officer_remarks TEXT;
+      ALTER TABLE objections DROP CONSTRAINT IF EXISTS objections_status_check;
+      ALTER TABLE objections ADD CONSTRAINT objections_status_check CHECK (status IN ('submitted', 'under_review', 'hearing_scheduled', 'resolved', 'dismissed'));
     `);
 
     // Create useful indexes for queries
