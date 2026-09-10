@@ -27,3 +27,6 @@ Thumbs.db
 # Uploads
 server/uploads/*
 !server/uploads/.gitkeep
+
+# Temporary test scratch directory
+scratch/

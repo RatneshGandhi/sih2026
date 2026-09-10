@@ -5,6 +5,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 dotenv.config();
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -40,6 +41,8 @@ app.use('/api/parcels', require('./routes/parcels'));
 app.use('/api/compensation', require('./routes/compensation'));
 app.use('/api/documents', require('./routes/documents'));
 app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/field', require('./routes/fieldOfficer'));
+app.use('/api/state', require('./routes/stateGovernment'));
 app.use('/api/admin', require('./routes/admin'));
 
 // Fallback 404 handler

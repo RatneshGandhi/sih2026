@@ -24,7 +24,19 @@ const STAGE_LABELS = {
   possession_taken: '7. Possession Taken'
 };
 
+import { useAuthStore } from '../store/authStore';
+import FieldOfficerDashboard from './field/FieldOfficerDashboard';
+import StateGovernmentDashboard from './state/StateGovernmentDashboard';
+
 export default function DashboardPage() {
+  const { user } = useAuthStore();
+  if (user?.role === 'field_officer') {
+    return <FieldOfficerDashboard />;
+  }
+  if (user?.role === 'state_official') {
+    return <StateGovernmentDashboard />;
+  }
+
   const [summary, setSummary] = useState(null);
   const [mapData, setMapData] = useState(null);
   const [loading, setLoading] = useState(true);
