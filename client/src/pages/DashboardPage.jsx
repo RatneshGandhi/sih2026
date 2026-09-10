@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, GeoJSON, Tooltip } from 'react-leaflet';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip, Legend } from 'recharts';
 import api from '../api/client';
+import { useAuthStore } from '../store/authStore';
+import DistrictDashboard from '../components/district/DistrictDashboard';
+import MinistryDashboard from '../components/ministry/MinistryDashboard';
+import FieldOfficerDashboard from './field/FieldOfficerDashboard';
+import StateGovernmentDashboard from './state/StateGovernmentDashboard';
 
 const STAGE_COLORS = {
   proposal_submitted: '#94A3B8',
@@ -24,19 +29,29 @@ const STAGE_LABELS = {
   possession_taken: '7. Possession Taken'
 };
 
-import { useAuthStore } from '../store/authStore';
-import FieldOfficerDashboard from './field/FieldOfficerDashboard';
-import StateGovernmentDashboard from './state/StateGovernmentDashboard';
-
 export default function DashboardPage() {
   const { user } = useAuthStore();
+
   if (user?.role === 'field_officer') {
     return <FieldOfficerDashboard />;
   }
+
   if (user?.role === 'state_official') {
     return <StateGovernmentDashboard />;
   }
 
+  if (user?.role === 'district_official') {
+    return <DistrictDashboard />;
+  }
+
+  if (user?.role === 'ministry_official') {
+    return <MinistryDashboard />;
+  }
+
+  return <StandardDashboardPage />;
+}
+
+function StandardDashboardPage() {
   const [summary, setSummary] = useState(null);
   const [mapData, setMapData] = useState(null);
   const [loading, setLoading] = useState(true);

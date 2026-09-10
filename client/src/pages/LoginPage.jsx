@@ -61,7 +61,7 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await login(email, password);
+    const res = await login(email, password, selectedRole?.id);
     if (res.success) {
       navigate('/');
     }
@@ -69,7 +69,7 @@ export default function LoginPage() {
 
   const handleDirectDemoLogin = async (role) => {
     handleRoleSelect(role);
-    const res = await login(role.email, role.pass);
+    const res = await login(role.email, role.pass, role.id);
     if (res.success) {
       navigate('/');
     }
