@@ -31,6 +31,22 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
+  register: async (userData) => {
+    set({ isLoading: true, error: null });
+    try {
+      const res = await api.post('/auth/register', userData);
+      const { token, user } = res.data;
+      localStorage.setItem('nlams_token', token);
+      localStorage.setItem('nlams_user', JSON.stringify(user));
+      set({ token, user, isLoading: false, error: null });
+      return { success: true, user, message: res.data.message };
+    } catch (err) {
+      const msg = err.response?.data?.error || 'Registration failed. Please verify statutory details.';
+      set({ error: msg, isLoading: false });
+      return { success: false, error: msg };
+    }
+  },
+
   quickLogin: async (roleKey) => {
     const creds = DEMO_ACCOUNTS[roleKey];
     if (!creds) return;

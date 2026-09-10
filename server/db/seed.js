@@ -11,7 +11,7 @@ async function seed() {
     await client.query('BEGIN');
 
     // Clean existing tables in reverse dependency order
-    await client.query('TRUNCATE notifications, activity_log, documents, compensation, land_parcels, projects, users RESTART IDENTITY CASCADE;');
+    await client.query('TRUNCATE objections, notifications, activity_log, documents, compensation, land_parcels, projects, users RESTART IDENTITY CASCADE;');
 
     // 1. SEED 5 USERS (One per role with memorable passwords)
     const saltRounds = 10;
@@ -806,7 +806,137 @@ async function seed() {
         [userRows[n.userIndex].id, n.title, n.message, n.type, n.read, projectRows[n.projectIndex].id]
       );
     }
-    console.log(`[SEED] Inserted ${notifsData.length} notifications across all 3 types.`);
+    console.log(`[SEED] Inserted ${notifsData.length} notifications across base types.`);
+
+    // 8. CITIZEN DASHBOARD EXTENSION: LINK 3 EXISTING PARCELS TO DEMO CITIZEN
+    // Demo citizen is Ramesh Patel (userRows[0], citizen@nlams.gov.in)
+    const citizenUserId = userRows[0].id;
+
+    // A. Update 3 existing base parcels with varied statuses (possession_taken, acquired, notified)
+    await client.query(`
+      UPDATE land_parcels 
+      SET owner_user_id = $1, village = 'Vangaon'
+      WHERE survey_number = 'SY-104/2B';
+    `, [citizenUserId]);
+
+    await client.query(`
+      UPDATE land_parcels 
+      SET owner_user_id = $1, village = 'Vangaon'
+      WHERE survey_number = 'SY-105/1A';
+    `, [citizenUserId]);
+
+    await client.query(`
+      UPDATE land_parcels 
+      SET owner_user_id = $1, village = 'Dahanu Road'
+      WHERE survey_number = 'SY-112/4';
+    `, [citizenUserId]);
+
+    console.log('[SEED] Linked 3 existing land parcels (SY-104/2B, SY-105/1A, SY-112/4) to demo citizen.');
+
+    // B. Update existing compensation rows for these 3 parcels with approved_amount and R&R statuses
+    // 1. SY-104/2B (possession_taken): Assessed 65L, Approved 65L, Paid 40L, Pending 25L -> Partially Paid
+    await client.query(`
+      UPDATE compensation 
+      SET assessed_amount = 6500000,
+          approved_amount = 6500000,
+          paid_amount = 4000000,
+          payment_status = 'processing',
+          rnr_status = 'in_progress',
+          housing_status = 'completed',
+          livelihood_status = 'in_progress',
+          resettlement_status = 'not_started'
+      WHERE parcel_id = (SELECT id FROM land_parcels WHERE survey_number = 'SY-104/2B');
+    `);
+
+    // 2. SY-105/1A (acquired): Assessed 45L, Approved 45L, Paid 20L, Pending 25L -> Partially Paid
+    await client.query(`
+      UPDATE compensation 
+      SET assessed_amount = 4500000,
+          approved_amount = 4500000,
+          paid_amount = 2000000,
+          payment_status = 'processing',
+          rnr_status = 'in_progress',
+          housing_status = 'completed',
+          livelihood_status = 'completed',
+          resettlement_status = 'in_progress'
+      WHERE parcel_id = (SELECT id FROM land_parcels WHERE survey_number = 'SY-105/1A');
+    `);
+
+    // 3. SY-112/4 (notified): Assessed 30L, Approved 30L, Paid 0, Pending 30L -> Pending
+    await client.query(`
+      UPDATE compensation 
+      SET assessed_amount = 3000000,
+          approved_amount = 3000000,
+          paid_amount = 0,
+          payment_status = 'pending',
+          rnr_status = 'not_started',
+          housing_status = 'not_started',
+          livelihood_status = 'not_started',
+          resettlement_status = 'not_started'
+      WHERE parcel_id = (SELECT id FROM land_parcels WHERE survey_number = 'SY-112/4');
+    `);
+
+    console.log('[SEED] Updated compensation ledger records with approved amounts & R&R status.');
+
+    // C. Make statutory gazette dockets in NH-48 visible to citizen
+    await client.query(`
+      UPDATE documents
+      SET visible_to_citizen = true
+      WHERE file_name IN ('Gazette_Sec11_Preliminary_Notification_NH48.pdf', 'Social_Impact_Assessment_Report_Final_Vangaon.pdf');
+    `);
+
+    console.log('[SEED] Flagged official project documents visible to citizen.');
+
+    // D. Additive Citizen-Relevant Notifications
+    const citizenNotifs = [
+      {
+        title: 'Section 11(1) Preliminary Gazette Notification Published',
+        message: 'Your parcel Survey SY-112/4 in Dahanu Road has been notified under Section 11(1) for NH-48 Western Freight Spur.',
+        type: 'acquisition_notification',
+        projectIndex: 0
+      },
+      {
+        title: 'Statutory Solatium & Award Assessed',
+        message: 'Competent Authority (CALA) has recorded statutory compensation assessment of ₹45,00,000 for Survey SY-105/1A Vangaon.',
+        type: 'compensation_assessed',
+        projectIndex: 0
+      },
+      {
+        title: 'Section 15 Public Hearing Notice Scheduled',
+        message: 'Statutory inquiry and public hearing on objections scheduled for 22-Oct-2026 at CALA Office Palghar.',
+        type: 'hearing_scheduled',
+        projectIndex: 0
+      },
+      {
+        title: 'Statutory Compensation Award Approved',
+        message: 'Award Order #NH48/2026/891 has been declared and approved for ₹65,00,000 on Survey SY-104/2B. First PFMS DBT tranche issued.',
+        type: 'compensation_approved',
+        projectIndex: 0
+      }
+    ];
+
+    for (const cn of citizenNotifs) {
+      await client.query(
+        `INSERT INTO notifications (user_id, title, message, type, is_read, project_id)
+         VALUES ($1, $2, $3, $4, false, $5);`,
+        [citizenUserId, cn.title, cn.message, cn.type, projectRows[cn.projectIndex].id]
+      );
+    }
+    console.log(`[SEED] Inserted ${citizenNotifs.length} citizen-relevant notifications.`);
+
+    // E. Objections: Insert 1 sample objection in 'under_review' status for SY-105/1A
+    // (leaves SY-112/4 and SY-104/2B free for live submission during demo)
+    const p105 = await client.query(`SELECT id FROM land_parcels WHERE survey_number = 'SY-105/1A';`);
+    const doc1 = await client.query(`SELECT id FROM documents WHERE file_name = 'Social_Impact_Assessment_Report_Final_Vangaon.pdf';`);
+
+    if (p105.rows.length > 0) {
+      await client.query(
+        `INSERT INTO objections (parcel_id, citizen_id, reason_category, description, document_id, status)
+         VALUES ($1, $2, 'boundary_discrepancy', 'Western boundary marker peg overlaps with private ancestral irrigation canal by 0.15 Ha per 1984 cadastral map. Requesting joint field re-measurement.', $3, 'under_review');`,
+        [p105.rows[0].id, citizenUserId, doc1.rows[0]?.id || null]
+      );
+      console.log('[SEED] Inserted 1 sample objection in under_review status for SY-105/1A.');
+    }
 
     await client.query('COMMIT');
     console.log('[SEED] NLAMS database seeding successfully completed!');

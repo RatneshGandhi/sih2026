@@ -29,6 +29,30 @@ export default function NotificationsDrawer() {
           icon: 'warning',
           label: 'Statutory Delay / SLA'
         };
+      case 'acquisition_notification':
+        return {
+          bg: 'bg-blue-100 text-blue-800 border border-blue-200',
+          icon: 'campaign',
+          label: 'Acquisition Notice'
+        };
+      case 'compensation_assessed':
+        return {
+          bg: 'bg-amber-100 text-amber-900 border border-amber-200',
+          icon: 'calculate',
+          label: 'Solatium Assessed'
+        };
+      case 'hearing_scheduled':
+        return {
+          bg: 'bg-purple-100 text-purple-800 border border-purple-200',
+          icon: 'event',
+          label: 'Section 15 Hearing'
+        };
+      case 'compensation_approved':
+        return {
+          bg: 'bg-emerald-100 text-emerald-800 border border-emerald-200',
+          icon: 'verified',
+          label: 'Compensation Awarded'
+        };
       default:
         return {
           bg: 'bg-secondary-container text-on-secondary-container',

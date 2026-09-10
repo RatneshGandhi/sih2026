@@ -5,7 +5,9 @@ import { useAuthStore } from '../store/authStore';
 export default function Sidebar() {
   const { user } = useAuthStore();
 
-  const navItems = [
+  const isCitizen = user?.role === 'citizen';
+
+  const officialNavItems = [
     { to: '/', label: 'Executive Dashboard', icon: 'dashboard' },
     { to: '/projects', label: 'Proposals & Lifecycle', icon: 'rule_folder' },
     { to: '/map', label: 'GIS Cadastre Map', icon: 'layers' },
@@ -14,15 +16,28 @@ export default function Sidebar() {
     { to: '/field-capture', label: 'Field Data Capture', icon: 'photo_camera', badge: user?.role === 'field_officer' ? 'Surveyor' : null }
   ];
 
+  const citizenNavItems = [
+    { to: '/citizen', label: 'My Land Parcels', icon: 'landscape' },
+    { to: '/citizen/map', label: 'My Land on Map', icon: 'map' },
+    { to: '/citizen/compensation', label: 'Compensation Tracker', icon: 'account_balance_wallet' },
+    { to: '/citizen/rnr', label: 'R&R Assistance', icon: 'family_restroom' },
+    { to: '/citizen/objections', label: 'Objections & Claims', icon: 'gavel' },
+    { to: '/citizen/documents', label: 'Official Documents', icon: 'description' }
+  ];
+
+  const navItems = isCitizen ? citizenNavItems : officialNavItems;
+
   return (
     <aside className="fixed left-0 top-[67px] bottom-0 w-64 bg-surface-container-low border-r border-govSlate-200/80 z-30 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.02)]">
       <div className="flex flex-col">
         {/* Node context badge */}
         <div className="px-space-md py-3 border-b border-govSlate-200/50">
           <div className="bg-surface-container-high/60 rounded-lg px-space-sm py-2 flex items-center justify-between">
-            <span className="font-semibold text-xs text-primary">Central Repository</span>
+            <span className="font-semibold text-xs text-primary">
+              {isCitizen ? 'Landowner Portal' : 'Central Repository'}
+            </span>
             <span className="font-mono text-[10px] bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-bold">
-              v4.2.0 CORE
+              {isCitizen ? 'CITIZEN' : 'v4.2.0 CORE'}
             </span>
           </div>
         </div>

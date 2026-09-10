@@ -6,6 +6,13 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+const { ensurePostgresRunning } = require('./db/ensureDb');
+
+// Check and auto-start PostgreSQL if needed
+ensurePostgresRunning().catch(err => {
+  console.warn('[NLAMS SERVER] DB auto-start warning:', err.message);
+});
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -40,6 +47,7 @@ app.use('/api/parcels', require('./routes/parcels'));
 app.use('/api/compensation', require('./routes/compensation'));
 app.use('/api/documents', require('./routes/documents'));
 app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/citizen', require('./routes/citizen'));
 app.use('/api/admin', require('./routes/admin'));
 
 // Fallback 404 handler
