@@ -5,6 +5,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 dotenv.config();
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const { ensurePostgresRunning } = require('./db/ensureDb');
 
@@ -48,6 +49,8 @@ app.use('/api/compensation', require('./routes/compensation'));
 app.use('/api/documents', require('./routes/documents'));
 app.use('/api/notifications', require('./routes/notifications'));
 app.use('/api/citizen', require('./routes/citizen'));
+app.use('/api/field', require('./routes/fieldOfficer'));
+app.use('/api/state', require('./routes/stateGovernment'));
 app.use('/api/admin', require('./routes/admin'));
 
 // Fallback 404 handler

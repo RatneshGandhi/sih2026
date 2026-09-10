@@ -2,11 +2,11 @@ import { create } from 'zustand';
 import api from '../api/client';
 
 const DEMO_ACCOUNTS = {
-  citizen: { email: 'citizen@nlams.gov.in', password: 'citizen123', label: 'Citizen / Landowner' },
-  field_officer: { email: 'field@nlams.gov.in', password: 'field123', label: 'Field Survey Officer' },
-  district_official: { email: 'district@nlams.gov.in', password: 'district123', label: 'District Magistrate / Collector' },
-  state_official: { email: 'state@nlams.gov.in', password: 'state123', label: 'State Revenue Department' },
-  ministry_official: { email: 'ministry@nlams.gov.in', password: 'ministry123', label: 'Central Ministry (MoRD)' }
+  citizen: { email: 'citizen@nlams.gov.in', password: 'citizen123', label: 'Citizen / Landowner', role: 'citizen' },
+  field_officer: { email: 'field@nlams.gov.in', password: 'field123', label: 'Field Survey Officer', role: 'field_officer' },
+  district_official: { email: 'district@nlams.gov.in', password: 'district123', label: 'District Magistrate / Collector', role: 'district_official' },
+  state_official: { email: 'state@nlams.gov.in', password: 'state123', label: 'State Revenue Department', role: 'state_official' },
+  ministry_official: { email: 'ministry@nlams.gov.in', password: 'ministry123', label: 'Central Ministry (MoRD)', role: 'ministry_official' }
 };
 
 export const useAuthStore = create((set, get) => ({
@@ -15,17 +15,37 @@ export const useAuthStore = create((set, get) => ({
   isLoading: false,
   error: null,
 
-  login: async (email, password) => {
+  login: async (email, password, role) => {
+    // 1. Validation checks for empty fields
+    if (!email || !email.trim()) {
+      const msg = 'Please enter your official email or identity ID.';
+      set({ error: msg, isLoading: false });
+      return { success: false, error: msg };
+    }
+    if (!password || !password.trim()) {
+      const msg = 'Please enter your security passcode.';
+      set({ error: msg, isLoading: false });
+      return { success: false, error: msg };
+    }
+
     set({ isLoading: true, error: null });
     try {
-      const res = await api.post('/auth/login', { email, password });
+      const payload = { email: email.trim(), password };
+      if (role) payload.role = role;
+
+      const res = await api.post('/auth/login', payload);
       const { token, user } = res.data;
       localStorage.setItem('nlams_token', token);
       localStorage.setItem('nlams_user', JSON.stringify(user));
-      set({ token, user, isLoading: false });
+      set({ token, user, isLoading: false, error: null });
       return { success: true, user };
     } catch (err) {
-      const msg = err.response?.data?.error || 'Authentication failed. Please check credentials.';
+      let msg = 'Something went wrong during authentication.';
+      if (err.response?.data?.error) {
+        msg = err.response.data.error;
+      } else if (!err.response) {
+        msg = 'Authentication service is unavailable. Please try again.';
+      }
       set({ error: msg, isLoading: false });
       return { success: false, error: msg };
     }
@@ -50,7 +70,7 @@ export const useAuthStore = create((set, get) => ({
   quickLogin: async (roleKey) => {
     const creds = DEMO_ACCOUNTS[roleKey];
     if (!creds) return;
-    return get().login(creds.email, creds.password);
+    return get().login(creds.email, creds.password, roleKey);
   },
 
   logout: () => {
@@ -67,5 +87,7 @@ export const useAuthStore = create((set, get) => ({
     } catch (err) {
       console.warn('Failed to refresh user profile:', err.message);
     }
-  }
+  },
+
+  clearError: () => set({ error: null })
 }));

@@ -171,7 +171,7 @@ export default function LoginPage({ initialMode = 'login' }) {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const res = await login(email, password);
+    const res = await login(email, password, selectedRole?.id);
     if (res.success) {
       navigate('/');
     }
@@ -213,7 +213,7 @@ export default function LoginPage({ initialMode = 'login' }) {
   const handleDirectDemoLogin = async (role) => {
     setMode('login');
     handleRoleSelect(role);
-    const res = await login(role.email, role.pass);
+    const res = await login(role.email, role.pass, role.id);
     if (res.success) {
       navigate('/');
     }
