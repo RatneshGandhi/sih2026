@@ -8,9 +8,22 @@ dotenv.config();
 dotenv.config({ path: path.join(__dirname, '.env') });
 
 const { ensurePostgresRunning } = require('./db/ensureDb');
+const migrate = require('./db/migrations');
+const migrateFieldOfficer = require('./db/fieldOfficerMigrations');
+const migrateStateGovernment = require('./db/stateGovernmentMigrations');
 
-// Check and auto-start PostgreSQL if needed
-ensurePostgresRunning().catch(err => {
+// Check and auto-start PostgreSQL if needed, and verify schema migrations
+ensurePostgresRunning().then(async (isUp) => {
+  if (isUp) {
+    try {
+      await migrate();
+      await migrateFieldOfficer();
+      await migrateStateGovernment();
+    } catch (migErr) {
+      console.warn('[NLAMS SERVER] Auto-migration notice:', migErr.message);
+    }
+  }
+}).catch(err => {
   console.warn('[NLAMS SERVER] DB auto-start warning:', err.message);
 });
 

@@ -23,6 +23,7 @@ import {
   DISTRICT_DOCUMENTS,
   DISTRICT_AUDIT_LOGS
 } from '../../data/districtData';
+import { useAuthStore } from '../../store/authStore';
 
 const TABS = [
   { id: 'overview', label: 'Executive Overview', icon: 'dashboard' },
@@ -39,6 +40,21 @@ const TABS = [
 ];
 
 export default function DistrictDashboard() {
+  const { user } = useAuthStore();
+  const districtName = user?.district || DISTRICT_INFO.district;
+  const magistrateName = user?.name || DISTRICT_INFO.magistrateName;
+  const designation = user?.designation || DISTRICT_INFO.designation;
+  const stateName = user?.state || DISTRICT_INFO.state;
+
+  const currentInfo = useMemo(() => ({
+    ...DISTRICT_INFO,
+    state: stateName,
+    district: districtName,
+    magistrateName: magistrateName,
+    designation: designation,
+    office: `Office of the District Magistrate & Competent Authority for Land Acquisition (CALA), ${districtName}`
+  }), [stateName, districtName, magistrateName, designation]);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const tabFromUrl = searchParams.get('tab');
   const [activeTab, setActiveTabState] = useState(tabFromUrl || 'overview');
@@ -125,14 +141,14 @@ export default function DistrictDashboard() {
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-xs text-primary uppercase tracking-wide">
-                GOVERNMENT OF MAHARASHTRA • REVENUE &amp; FOREST DEPARTMENT
+                GOVERNMENT OF {currentInfo.state.toUpperCase()} • REVENUE &amp; FOREST DEPARTMENT
               </span>
               <span className="px-1.5 py-0.2 bg-emerald-50 text-emerald-800 font-mono text-[9px] font-bold rounded border border-emerald-200">
-                DISTRICT CALA BENCH
+                DISTRICT CALA BENCH • {currentInfo.district.toUpperCase()}
               </span>
             </div>
             <span className="text-[11px] text-govSlate-500">
-              Logged in: {DISTRICT_INFO.magistrateName} ({DISTRICT_INFO.designation})
+              Logged in: {currentInfo.magistrateName} ({currentInfo.designation})
             </span>
           </div>
         </div>
@@ -190,9 +206,6 @@ export default function DistrictDashboard() {
         </div>
       </div>
 
-      {/* Primary District Overview Section (Always at top or when in overview tab) */}
-      <DistrictOverview kpis={kpis} info={DISTRICT_INFO} />
-
       {/* Main Tab Navigation Bar */}
       <div className="bg-white rounded-xl p-1.5 border border-govSlate-200/90 shadow-xs flex items-center overflow-x-auto gap-1">
         {TABS.map((tab) => {
@@ -222,6 +235,37 @@ export default function DistrictDashboard() {
           );
         })}
       </div>
+
+      {/* Primary District Overview Section - rendered in overview tab, or compact strip on other tabs */}
+      {activeTab === 'overview' ? (
+        <DistrictOverview kpis={kpis} info={currentInfo} />
+      ) : (
+        <div className="bg-white rounded-xl p-3.5 border border-govSlate-200/90 shadow-xs flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[20px]">
+              {TABS.find(t => t.id === activeTab)?.icon || 'dashboard'}
+            </span>
+            <span className="font-bold text-sm text-primary">
+              {TABS.find(t => t.id === activeTab)?.label}
+            </span>
+            <span className="text-govSlate-400">•</span>
+            <span className="text-xs text-govSlate-600 font-medium">
+              {currentInfo.district} District Jurisdiction
+            </span>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-mono">
+            <span className="bg-govSlate-100 px-2 py-1 rounded text-govSlate-700">
+              Projects: <strong>{kpis.totalProjects}</strong>
+            </span>
+            <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-1 rounded">
+              Progress: <strong>{((kpis.landAcquiredHa / kpis.landProposedHa) * 100).toFixed(1)}%</strong>
+            </span>
+            <span className="bg-red-50 text-red-800 border border-red-200 px-2 py-1 rounded">
+              Disputes: <strong>{kpis.disputesCount}</strong>
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* Tab Content Display */}
       <div className="w-full flex flex-col gap-6">

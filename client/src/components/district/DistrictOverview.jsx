@@ -22,7 +22,7 @@ export default function DistrictOverview({ kpis = DISTRICT_KPIS, info = DISTRICT
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight font-sans mt-0.5">
-              RATNAGIRI DISTRICT
+              {info.district.toUpperCase()} DISTRICT
             </h1>
             <p className="text-xs text-govSlate-600 mt-0.5">
               {info.office} • {info.magistrateName}
