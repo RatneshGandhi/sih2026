@@ -7,25 +7,44 @@ const dotenv = require('dotenv');
 dotenv.config();
 dotenv.config({ path: path.join(__dirname, '.env') });
 
+const { pool } = require('./db/pool');
 const { ensurePostgresRunning } = require('./db/ensureDb');
 const migrate = require('./db/migrations');
 const migrateFieldOfficer = require('./db/fieldOfficerMigrations');
 const migrateStateGovernment = require('./db/stateGovernmentMigrations');
 
-// Check and auto-start PostgreSQL if needed, and verify schema migrations
-ensurePostgresRunning().then(async (isUp) => {
-  if (isUp) {
-    try {
-      await migrate();
-      await migrateFieldOfficer();
-      await migrateStateGovernment();
-    } catch (migErr) {
-      console.warn('[NLAMS SERVER] Auto-migration notice:', migErr.message);
-    }
+async function runAutoMigrations() {
+  try {
+    await migrate();
+    await migrateFieldOfficer();
+    await migrateStateGovernment();
+    console.log('[NLAMS SERVER] Database schema migrations verified successfully.');
+  } catch (migErr) {
+    console.warn('[NLAMS SERVER] Auto-migration notice:', migErr.message);
   }
-}).catch(err => {
-  console.warn('[NLAMS SERVER] DB auto-start warning:', err.message);
-});
+}
+
+// Database startup & verification logic
+const dbUrl = process.env.DATABASE_URL || '';
+const isLocalDb = !dbUrl || dbUrl.includes('localhost') || dbUrl.includes('127.0.0.1');
+
+if (isLocalDb) {
+  ensurePostgresRunning().then(async (isUp) => {
+    if (isUp) {
+      await runAutoMigrations();
+    }
+  }).catch(err => {
+    console.warn('[NLAMS SERVER] DB auto-start warning:', err.message);
+  });
+} else {
+  // Remote / Managed Cloud DB (e.g. Neon, Supabase, Render Postgres)
+  pool.query('SELECT 1').then(async () => {
+    console.log('[NLAMS SERVER] Connected to remote PostgreSQL database.');
+    await runAutoMigrations();
+  }).catch(err => {
+    console.error('[NLAMS SERVER] Remote DB initial check error:', err.message);
+  });
+}
 
 const app = express();
 const PORT = process.env.PORT || 5000;

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import * as turf from '@turf/turf';
-import api from '../../api/client';
+import api, { getAssetUrl } from '../../api/client';
 import { useUIStore } from '../../store/uiStore';
 import { STATUS_CONFIG, PRIORITY_CONFIG } from './FieldOfficerDashboard';
 
@@ -1176,7 +1176,7 @@ export default function ParcelVerificationPage() {
                           <div className="h-32 bg-slate-200 relative overflow-hidden">
                             {item.file_type?.startsWith('image/') || item.file_path?.includes('http') || item.file_path?.endsWith('.jpg') || item.file_path?.endsWith('.png') ? (
                               <img
-                                src={item.file_path}
+                                src={getAssetUrl(item.file_path)}
                                 alt={item.caption || item.file_name}
                                 className="w-full h-full object-cover"
                               />

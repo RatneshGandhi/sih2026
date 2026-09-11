@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import api from '../api/client';
+import api, { getAssetUrl } from '../api/client';
 import { useAuthStore } from '../store/authStore';
 import { useUIStore } from '../store/uiStore';
 
@@ -411,7 +411,7 @@ export default function ProjectDetailPage() {
                       </div>
                       <div className="min-w-0">
                         <a
-                          href={doc.file_path}
+                          href={getAssetUrl(doc.file_path)}
                           target="_blank"
                           rel="noreferrer"
                           className="font-bold text-xs text-primary hover:underline truncate block"

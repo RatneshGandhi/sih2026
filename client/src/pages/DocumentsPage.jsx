@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../api/client';
+import api, { getAssetUrl } from '../api/client';
 import { useAuthStore } from '../store/authStore';
 import { useUIStore } from '../store/uiStore';
 
@@ -205,7 +205,7 @@ export default function DocumentsPage() {
                         </div>
                         <div>
                           <a
-                            href={doc.file_path}
+                            href={getAssetUrl(doc.file_path)}
                             target="_blank"
                             rel="noreferrer"
                             className="font-bold text-primary hover:underline"
@@ -248,7 +248,7 @@ export default function DocumentsPage() {
                     <td className="py-3 px-4 text-right whitespace-nowrap">
                       <div className="flex items-center justify-end gap-2">
                         <a
-                          href={doc.file_path}
+                          href={getAssetUrl(doc.file_path)}
                           download
                           className="p-1 rounded hover:bg-surface-container text-primary"
                           title="Download Docket"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../api/client';
+import api, { getAssetUrl } from '../../api/client';
 export default function DocumentsList() {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -127,7 +127,7 @@ export default function DocumentsList() {
                   </div>
 
                   <a
-                    href={doc.file_path || '#'}
+                    href={getAssetUrl(doc.file_path) || '#'}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold transition-all shadow-xs shrink-0"

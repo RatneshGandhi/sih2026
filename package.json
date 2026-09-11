@@ -6,7 +6,7 @@
   "scripts": {
     "migrate": "node server/db/migrations.js",
     "seed": "node server/db/seed.js",
-    "db:setup": "node server/db/migrations.js && node server/db/seed.js",
+    "db:setup": "node server/db/setupAll.js",
     "db:start": "node -e \"require('./server/db/ensureDb').ensurePostgresRunning()\"",
     "server": "node --watch server/index.js",
     "client": "npm --prefix client run dev",

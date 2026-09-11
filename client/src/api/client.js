@@ -1,7 +1,15 @@
 import axios from 'axios';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL ? import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '') : '';
+
+export const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  return backendUrl ? `${backendUrl}${path.startsWith('/') ? '' : '/'}${path}` : path;
+};
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: backendUrl ? `${backendUrl}/api` : '/api',
   headers: {
     'Content-Type': 'application/json',
   },

@@ -7,7 +7,8 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "migrate": "node db/migrations.js",
-    "seed": "node db/seed.js"
+    "seed": "node db/seed.js",
+    "db:setup": "node db/setupAll.js"
   },
   "dependencies": {
     "@turf/turf": "^7.2.0",
